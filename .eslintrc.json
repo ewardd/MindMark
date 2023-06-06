@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "@feature-sliced",
+    "react-app",
+    "eslint:recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
+    "prettier/prettier": "warn",
+    "no-duplicate-imports": ["error", { "includeExports": true }],
+    "eqeqeq": "error",
+    "no-console": ["warn", { "allow": ["warn", "error", "debug", "info"] }],
+    "no-unreachable": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/prefer-for-of": "warn",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-member-accessibility": ["error"],
+    "react/jsx-curly-brace-presence": [1, { "props": "always", "propElementValues": "always" }],
+    "no-debugger": "warn",
+    "react/jsx-key": "error"
+  }
+}

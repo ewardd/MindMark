@@ -1,6 +1,31 @@
 {
   "folders": [
     {
+      "name": "Entities",
+      "path": "./src/entities"
+    },
+    {
+      "name": "Features",
+      "path": "./src/features"
+    },
+    {
+      "name": "Widgets",
+      "path": "./src/widgets"
+    },
+    {
+      "name": "Pages",
+      "path": "./src/pages"
+    },
+    {
+      "name": "Shared",
+      "path": "./src/shared"
+    },
+    {
+      "name": "App",
+      "path": "./src/app"
+    },
+    {
+      "name": "root",
       "path": "."
     }
   ],
@@ -8,6 +33,9 @@
     "typescript.tsdk": "node_modules\\typescript\\lib",
     "javascript.preferences.importModuleSpecifier": "non-relative",
     "typescript.preferences.importModuleSpecifier": "non-relative",
-    "typescript.preferences.includePackageJsonAutoImports": "on"
+    "typescript.preferences.includePackageJsonAutoImports": "on",
+    "cSpell.words": [
+      "reduxjs"
+    ]
   }
 }

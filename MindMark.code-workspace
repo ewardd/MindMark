@@ -30,7 +30,14 @@
     }
   ],
   "settings": {
-    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "search.exclude": {
+      "**/.yarn": true,
+      "**/.pnp.*": true
+    },
+    "eslint.nodePath": ".yarn/sdks",
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "typescript.tsdk": "root/.yarn/sdks/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
     "javascript.preferences.importModuleSpecifier": "non-relative",
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "jest.disabledWorkspaceFolders": ["App", "Pages", "Widgets", "Features", "Entities", "Shared"],
@@ -49,14 +56,13 @@
     "typescript.preferences.jsxAttributeCompletionStyle": "braces",
     "scss.lint.unknownAtRules": "ignore",
     "cSpell.language": "en,ru",
-    "cSpell.words": [
-      "linebreak",
-      "reduxjs",
-      "tailwindcss"
-    ]
+    "cSpell.words": ["linebreak", "reduxjs", "tailwindcss"]
   },
   "extensions": {
     "recommendations": [
+      "arcanis.vscode-zipfs",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
       "maptz.regionfolder",
       "formulahendry.auto-rename-tag",
       "aaron-bond.better-comments",

@@ -1,0 +1,31 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:prettier/recommended"],
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
+    "prettier/prettier": "warn",
+    "no-duplicate-imports": ["error", { "includeExports": true }],
+    "eqeqeq": "error",
+    "no-console": ["warn", { "allow": ["warn", "error", "debug", "info"] }],
+    "no-unreachable": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/prefer-for-of": "warn",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-member-accessibility": ["error"],
+    "no-debugger": "warn"
+  }
+}

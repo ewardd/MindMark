@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  postgres:
+    container_name: mindmark-postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: 'mindmark'
+      POSTGRES_USER: 'server'
+      POSTGRES_PASSWORD: 'server-pwd'
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - '5432:5432'
+volumes:
+  postgres:

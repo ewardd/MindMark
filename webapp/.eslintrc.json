@@ -3,12 +3,12 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
-    "@feature-sliced",
     "react-app",
     "eslint:recommended",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
-    "prettier"
+    "prettier",
+    "@feature-sliced"
   ],
   "settings": {
     "import/resolver": {
@@ -31,6 +31,7 @@
     "@typescript-eslint/explicit-member-accessibility": ["error"],
     "react/jsx-curly-brace-presence": [1, { "props": "always", "propElementValues": "always" }],
     "no-debugger": "warn",
-    "react/jsx-key": "error"
+    "react/jsx-key": "error",
+    "import/no-internal-modules": ["error", { "allow": ["**/.yarn/cache/**"] }]
   }
 }

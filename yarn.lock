@@ -3308,7 +3308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.7":
+"@types/react@npm:*, @types/react@npm:^18.2.9":
   version: 18.2.9
   resolution: "@types/react@npm:18.2.9"
   dependencies:
@@ -4001,7 +4001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd@npm:^5.5.2":
+"antd@npm:^5.6.1":
   version: 5.6.1
   resolution: "antd@npm:5.6.1"
   dependencies:
@@ -4495,6 +4495,12 @@ __metadata:
   checksum: ee66043484e67b8aef2541976388299691478ea00834f3bb14b6b3d5edcd316a5ac95351f6ec084b41ee555cad820d4194280ad38ce51884fedc7e8946a57b74
   languageName: node
   linkType: hard
+
+"backend@workspace:backend":
+  version: 0.0.0-use.local
+  resolution: "backend@workspace:backend"
+  languageName: unknown
+  linkType: soft
 
 "bail@npm:^2.0.0":
   version: 2.0.2
@@ -6347,6 +6353,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-react-hooks@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "eslint-config-react-hooks@npm:1.0.0"
+  checksum: befbb865742f416b14ac480981372c895d0a2b0a2fc9a4c93cf44c43ac3011f31f0faf5fa00671468e427f464c1d0d92494159db3be58a55491f51ad58a8a126
+  languageName: node
+  linkType: hard
+
 "eslint-import-resolver-node@npm:0.3.7, eslint-import-resolver-node@npm:^0.3.7":
   version: 0.3.7
   resolution: "eslint-import-resolver-node@npm:0.3.7"
@@ -6513,7 +6526,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^4.3.0":
+"eslint-plugin-react-hooks@npm:^4.3.0, eslint-plugin-react-hooks@npm:^4.6.0":
   version: 4.6.0
   resolution: "eslint-plugin-react-hooks@npm:4.6.0"
   peerDependencies:
@@ -9988,38 +10001,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mind-mark@workspace:."
   dependencies:
-    "@craco/craco": ^7.1.0
-    "@feature-sliced/eslint-config": ^0.1.0-beta.6
-    "@reduxjs/toolkit": ^1.9.5
-    "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^14.0.0
-    "@testing-library/user-event": ^14.4.3
-    "@types/jest": ^29.5.2
-    "@types/node": ^20.2.5
-    "@types/react": ^18.2.7
-    "@types/react-dom": ^18.2.4
-    "@typescript-eslint/eslint-plugin": ^5.59.9
-    "@typescript-eslint/parser": ^5.59.9
-    antd: ^5.5.2
-    classnames: ^2.3.2
     eslint: ^8.42.0
-    eslint-config-prettier: ^8.8.0
-    eslint-import-resolver-typescript: ^3.5.5
-    eslint-plugin-boundaries: ^3.1.1
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-prettier: ^4.2.1
     prettier: ^2.8.8
-    prettier-plugin-tailwindcss: ^0.3.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-markdown: ^8.0.7
-    react-redux: ^8.0.7
-    react-scripts: 5.0.1
-    redux: ^4.2.1
-    sass: ^1.62.1
-    tailwindcss: ^3.3.2
     typescript: ^4.9.5
-    web-vitals: ^3.3.2
   languageName: unknown
   linkType: soft
 
@@ -13261,16 +13245,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.62.1":
-  version: 1.63.0
-  resolution: "sass@npm:1.63.0"
+"sass@npm:^1.63.1":
+  version: 1.63.1
+  resolution: "sass@npm:1.63.1"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 7b5b3ea0f6b09577a58ecd04634750e3ca9e9336f0b7048efad0b92f9d6c64966e031ebbffa7fb40a16387ea854904bf95bdcd00257800eb9d98f49e5ef04eb3
+  checksum: e1dde14198cbaa08805584941e193447b9b08173ca96a89a678962d33678e0f3de1acfaac43c17126d8372b45872795e813b872d0548667141e053612844f574
   languageName: node
   linkType: hard
 
@@ -14940,6 +14924,48 @@ __metadata:
   checksum: 76e832341d213d5de6f6767fef7f8c02163ab94326912a6355bbf6e194d930196ca5094b0d0d493b4c194acaaabcc96f0adc87870b913a7b9a51b225807abccf
   languageName: node
   linkType: hard
+
+"webapp@workspace:webapp":
+  version: 0.0.0-use.local
+  resolution: "webapp@workspace:webapp"
+  dependencies:
+    "@craco/craco": ^7.1.0
+    "@feature-sliced/eslint-config": ^0.1.0-beta.6
+    "@reduxjs/toolkit": ^1.9.5
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^14.0.0
+    "@testing-library/user-event": ^14.4.3
+    "@types/jest": ^29.5.2
+    "@types/node": ^20.2.5
+    "@types/react": ^18.2.9
+    "@types/react-dom": ^18.2.4
+    "@typescript-eslint/eslint-plugin": ^5.59.9
+    "@typescript-eslint/parser": ^5.59.9
+    antd: ^5.6.1
+    classnames: ^2.3.2
+    eslint: ^8.42.0
+    eslint-config-prettier: ^8.8.0
+    eslint-config-react-app: ^7.0.1
+    eslint-config-react-hooks: ^1.0.0
+    eslint-import-resolver-typescript: ^3.5.5
+    eslint-plugin-boundaries: ^3.1.1
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-react-hooks: ^4.6.0
+    prettier: ^2.8.8
+    prettier-plugin-tailwindcss: ^0.3.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-markdown: ^8.0.7
+    react-redux: ^8.0.7
+    react-scripts: 5.0.1
+    redux: ^4.2.1
+    sass: ^1.63.1
+    tailwindcss: ^3.3.2
+    typescript: ^4.9.5
+    web-vitals: ^3.3.2
+  languageName: unknown
+  linkType: soft
 
 "webidl-conversions@npm:^4.0.2":
   version: 4.0.2

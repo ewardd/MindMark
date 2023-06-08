@@ -1,28 +1,32 @@
 {
   "folders": [
     {
+      "name": "Backend",
+      "path": "./backend"
+    },
+    {
       "name": "App",
-      "path": "./src/app"
+      "path": "./webapp/src/app"
     },
     {
       "name": "Pages",
-      "path": "./src/pages"
+      "path": "./webapp/src/pages"
     },
     {
       "name": "Widgets",
-      "path": "./src/widgets"
+      "path": "./webapp/src/widgets"
     },
     {
       "name": "Features",
-      "path": "./src/features"
+      "path": "./webapp/src/features"
     },
     {
       "name": "Entities",
-      "path": "./src/entities"
+      "path": "./webapp/src/entities"
     },
     {
       "name": "Shared",
-      "path": "./src/shared"
+      "path": "./webapp/src/shared"
     },
     {
       "name": "root",

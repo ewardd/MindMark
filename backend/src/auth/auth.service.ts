@@ -2,16 +2,16 @@ import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/
 import { JwtService } from '@nestjs/jwt';
 import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
 import { SignUpDto } from 'src/auth/dto/sign-up.dto';
-import { User } from 'src/user/entities/user.entity';
-import { UserService } from 'src/user/user.service';
+import { User } from 'src/users/entities/user.entity';
+import { UsersService } from 'src/users/users.service';
 import { AuthUtils } from 'src/utils/Auth';
 
 @Injectable()
 export class AuthService {
-  public constructor(private readonly _userService: UserService, private jwtService: JwtService) {}
+  public constructor(private readonly _usersService: UsersService, private jwtService: JwtService) {}
 
   public signIn = async (email: string, password: string): Promise<JwtResponse> => {
-    const user = await this._userService.findOneByEmail(email);
+    const user = await this._usersService.findOneByEmail(email);
 
     if (!user || !(await AuthUtils.comparePassword(user.passwordHash, password)))
       throw new UnauthorizedException('Wrong email or password');
@@ -25,7 +25,7 @@ export class AuthService {
 
     user.passwordHash = await AuthUtils.getPasswordHash(password);
 
-    const newUser = await this._userService.create(user);
+    const newUser = await this._usersService.create(user);
     if (!newUser?.id) throw new BadRequestException('Failed to register');
 
     return this.getJwtByUser(user);

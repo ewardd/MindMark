@@ -1,12 +1,12 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/user/entities/user.entity';
+import { User } from 'src/users/entities/user.entity';
 import { AuthUtils } from 'src/utils/Auth';
 import { Repository } from 'typeorm';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
-export class UserService {
+export class UsersService {
   public constructor(
     @InjectRepository(User)
     private readonly _userRepository: Repository<User>,

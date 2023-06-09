@@ -1,17 +1,25 @@
 import { AuthUtils } from 'src/utils/Auth';
 import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
 import { JwtService } from '@nestjs/jwt';
+import { Repository } from 'typeorm';
 import { SignUpDto } from 'src/auth/dto/sign-up.dto';
 import { User } from 'src/users/entities/user.entity';
-import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class AuthService {
-  public constructor(private readonly _usersService: UsersService, private readonly jwtService: JwtService) {}
+  public constructor(
+    @InjectRepository(User)
+    private readonly _userRepository: Repository<User>,
+    private readonly jwtService: JwtService,
+  ) {}
 
   public signIn = async (email: string, password: string): Promise<JwtResponse> => {
-    const user = await this._usersService.findOneByEmail(email);
+    const user = await this._userRepository.findOne({
+      where: { email, isActive: true },
+      select: ['id', 'email', 'passwordHash'],
+    });
 
     if (!user || !(await AuthUtils.comparePassword(user.passwordHash, password)))
       throw new UnauthorizedException('Wrong email or password');
@@ -25,7 +33,7 @@ export class AuthService {
 
     user.passwordHash = await AuthUtils.getPasswordHash(password);
 
-    const newUser = await this._usersService.create(user);
+    const newUser = await this._userRepository.save(user);
     if (!newUser?.id) throw new BadRequestException('Failed to register');
 
     return this.getJwtByUser(user);

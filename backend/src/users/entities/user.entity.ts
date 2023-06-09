@@ -3,12 +3,8 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  @ApiProperty()
-  public id: string;
-
-  @Column()
+export class User extends AbstractEntity {
+  @PrimaryColumn({ unique: true })
   @ApiProperty()
   public email: string;
 

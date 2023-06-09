@@ -12,14 +12,6 @@ export class UsersService {
     private readonly _userRepository: Repository<User>,
   ) {}
 
-  public create = (user: Omit<User, 'id'>): Promise<User> => {
-    return this._userRepository.save(user);
-  };
-
-  public findAll = (isActive: boolean | undefined = true): Promise<User[]> => {
-    return this._userRepository.find({ where: { isActive } });
-  };
-
   public findOne = (id: string): Promise<User | null> => {
     return this._userRepository.findOneBy({ id });
   };

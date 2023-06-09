@@ -1,11 +1,12 @@
 import { AbstractEntity } from 'src/utils/AbstractEntity';
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, Index } from 'typeorm';
 import { Exclude } from 'class-transformer';
 
 @Entity()
 export class User extends AbstractEntity {
-  @PrimaryColumn({ unique: true })
+  @Index({ unique: true })
+  @Column()
   @ApiProperty()
   public email: string;
 

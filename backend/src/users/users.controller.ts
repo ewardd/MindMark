@@ -1,3 +1,4 @@
+import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
 import {
   Body,
   ClassSerializerInterceptor,
@@ -8,9 +9,8 @@ import {
   Patch,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
-import { User } from 'src/users/entities/user.entity';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { User } from 'src/users/entities/user.entity';
 import { UsersService } from './users.service';
 
 @Controller('users')

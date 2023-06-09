@@ -1,14 +1,14 @@
+import { AuthUtils } from 'src/utils/Auth';
 import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
 import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
+import { JwtService } from '@nestjs/jwt';
 import { SignUpDto } from 'src/auth/dto/sign-up.dto';
 import { User } from 'src/users/entities/user.entity';
 import { UsersService } from 'src/users/users.service';
-import { AuthUtils } from 'src/utils/Auth';
 
 @Injectable()
 export class AuthService {
-  public constructor(private readonly _usersService: UsersService, private jwtService: JwtService) {}
+  public constructor(private readonly _usersService: UsersService, private readonly jwtService: JwtService) {}
 
   public signIn = async (email: string, password: string): Promise<JwtResponse> => {
     const user = await this._usersService.findOneByEmail(email);
@@ -31,7 +31,7 @@ export class AuthService {
     return this.getJwtByUser(user);
   };
 
-  private getJwtByUser = async (user: User): Promise<JwtResponse> => {
+  private readonly getJwtByUser = async (user: User): Promise<JwtResponse> => {
     const payload = { sub: user.id, email: user.email };
 
     return {

@@ -62,6 +62,7 @@
     "scss.lint.unknownAtRules": "ignore",
     "cSpell.language": "en,ru",
     "cSpell.words": [
+      "autofix",
       "linebreak",
       "mindmark",
       "nestjs",

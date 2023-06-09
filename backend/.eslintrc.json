@@ -1,8 +1,14 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:prettier/recommended"],
+  "plugins": ["import", "@typescript-eslint", "prettier", "eslint-plugin-sort-imports-es6-autofix", "unused-imports"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
   "env": {
     "node": true,
     "jest": true,
@@ -10,9 +16,15 @@
     "es2021": true
   },
   "parserOptions": {
-    "project": "tsconfig.json",
+    "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": true,
+      "typescript": true
+    }
   },
   "rules": {
     "linebreak-style": ["error", "unix"],
@@ -26,6 +38,21 @@
     "@typescript-eslint/prefer-for-of": "warn",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-member-accessibility": ["error"],
-    "no-debugger": "warn"
+    "@typescript-eslint/prefer-readonly": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-debugger": "warn",
+    "sort-imports-es6-autofix/sort-imports-es6": [
+      2,
+      {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ]
   }
 }

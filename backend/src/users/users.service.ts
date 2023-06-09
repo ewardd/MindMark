@@ -29,7 +29,7 @@ export class UsersService {
   };
 
   public update = async (id: string, { password, ...updateUserDto }: UpdateUserDto): Promise<User> => {
-    const user = await this._userRepository.findOneBy({ id });
+    const user = await this.findOne(id);
     if (!user) throw new BadRequestException();
 
     Object.assign(user, updateUserDto);
@@ -42,7 +42,7 @@ export class UsersService {
   };
 
   public remove = async (id: string): Promise<boolean> => {
-    const user = await this._userRepository.findOneBy({ id });
+    const user = await this.findOne(id);
     if (!user) throw new BadRequestException();
 
     user.isActive = false;

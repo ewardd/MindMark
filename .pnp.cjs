@@ -8020,6 +8020,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.18.2"],\
             ["jest", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:29.5.0"],\
             ["lodash", "npm:4.17.21"],\
+            ["nestjs-paginate", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:8.1.4"],\
             ["pg", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:8.11.0"],\
             ["prettier", "npm:2.8.8"],\
             ["reflect-metadata", "npm:0.1.13"],\
@@ -16231,6 +16232,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/neo-async-npm-2.6.2-75d6902586-deac9f8d00.zip/node_modules/neo-async/",\
           "packageDependencies": [\
             ["neo-async", "npm:2.6.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["nestjs-paginate", [\
+        ["npm:8.1.4", {\
+          "packageLocation": "./.yarn/cache/nestjs-paginate-npm-8.1.4-5040d18a1c-c7b9cce5db.zip/node_modules/nestjs-paginate/",\
+          "packageDependencies": [\
+            ["nestjs-paginate", "npm:8.1.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:8.1.4", {\
+          "packageLocation": "./.yarn/__virtual__/nestjs-paginate-virtual-c976995e91/0/cache/nestjs-paginate-npm-8.1.4-5040d18a1c-c7b9cce5db.zip/node_modules/nestjs-paginate/",\
+          "packageDependencies": [\
+            ["nestjs-paginate", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:8.1.4"],\
+            ["@nestjs/common", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:9.4.2"],\
+            ["@types/express", "npm:4.17.17"],\
+            ["@types/fastify", null],\
+            ["@types/nestjs__common", null],\
+            ["@types/typeorm", null],\
+            ["express", "npm:4.18.2"],\
+            ["fastify", null],\
+            ["lodash", "npm:4.17.21"],\
+            ["typeorm", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:0.3.16"]\
+          ],\
+          "packagePeers": [\
+            "@nestjs/common",\
+            "@types/express",\
+            "@types/fastify",\
+            "@types/nestjs__common",\
+            "@types/typeorm",\
+            "express",\
+            "fastify",\
+            "typeorm"\
           ],\
           "linkType": "HARD"\
         }]\

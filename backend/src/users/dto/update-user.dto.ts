@@ -1,8 +1,9 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IOmitAbstractEntity } from 'src/utils/AbstractEntity';
 import { IsBoolean, IsEmail, IsNotEmpty, IsString, IsUUID } from 'class-validator';
 import { User } from 'src/users/entities/user.entity';
 
-export class UpdateUserDto implements Partial<Omit<User, 'passwordHash' | 'createdAt' | 'updatedAt'>> {
+export class UpdateUserDto implements Partial<Omit<User, IOmitAbstractEntity | 'passwordHash'>> {
   @IsUUID()
   @IsNotEmpty()
   @ApiProperty()

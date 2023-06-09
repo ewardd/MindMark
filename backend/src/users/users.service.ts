@@ -33,13 +33,5 @@ export class UsersService {
     return await this._userRepository.save(user);
   };
 
-  public remove = async (id: string): Promise<boolean> => {
-    const user = await this.findOne(id);
-    if (!user) throw new BadRequestException();
-
-    user.isActive = false;
-    await this._userRepository.save(user);
-
-    return true;
-  };
+  public remove = async (id: string): Promise<boolean> => !!(await this._userRepository.softDelete(id)).affected;
 }

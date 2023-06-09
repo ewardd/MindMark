@@ -1,5 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Exclude } from 'class-transformer';
+
+export type IOmitAbstractEntity = 'id' | 'createdAt' | 'updatedAt' | 'deletedAt';
 
 export abstract class AbstractEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -13,4 +16,8 @@ export abstract class AbstractEntity {
   @UpdateDateColumn()
   @ApiProperty()
   public updatedAt: Date;
+
+  @DeleteDateColumn({ select: false })
+  @Exclude()
+  public deletedAt: Date;
 }

@@ -1,13 +1,11 @@
+import { AbstractEntity } from 'src/utils/AbstractEntity';
 import { ApiProperty } from '@nestjs/swagger';
+import { Column, Entity, Index } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  @ApiProperty()
-  public id: string;
-
+export class User extends AbstractEntity {
+  @Index({ unique: true })
   @Column()
   @ApiProperty()
   public email: string;
@@ -16,7 +14,7 @@ export class User {
   @ApiProperty()
   public isActive: boolean;
 
-  @Column()
+  @Column({ select: false })
   @Exclude()
   public passwordHash: string;
 }

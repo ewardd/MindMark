@@ -1,17 +1,25 @@
-import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
-import { SignUpDto } from 'src/auth/dto/sign-up.dto';
-import { User } from 'src/user/entities/user.entity';
-import { UserService } from 'src/user/user.service';
 import { AuthUtils } from 'src/utils/Auth';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
+import { JwtService } from '@nestjs/jwt';
+import { Repository } from 'typeorm';
+import { SignUpDto } from 'src/auth/dto/sign-up.dto';
+import { User } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class AuthService {
-  public constructor(private readonly _userService: UserService, private jwtService: JwtService) {}
+  public constructor(
+    @InjectRepository(User)
+    private readonly _userRepository: Repository<User>,
+    private readonly jwtService: JwtService,
+  ) {}
 
   public signIn = async (email: string, password: string): Promise<JwtResponse> => {
-    const user = await this._userService.findOneByEmail(email);
+    const user = await this._userRepository.findOne({
+      where: { email, isActive: true },
+      select: ['id', 'email', 'passwordHash'],
+    });
 
     if (!user || !(await AuthUtils.comparePassword(user.passwordHash, password)))
       throw new UnauthorizedException('Wrong email or password');
@@ -25,13 +33,13 @@ export class AuthService {
 
     user.passwordHash = await AuthUtils.getPasswordHash(password);
 
-    const newUser = await this._userService.create(user);
+    const newUser = await this._userRepository.save(user);
     if (!newUser?.id) throw new BadRequestException('Failed to register');
 
     return this.getJwtByUser(user);
   };
 
-  private getJwtByUser = async (user: User): Promise<JwtResponse> => {
+  private readonly getJwtByUser = async (user: User): Promise<JwtResponse> => {
     const payload = { sub: user.id, email: user.email };
 
     return {

@@ -1,5 +1,6 @@
 import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
+import { PagesModule } from './pages/pages.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 
@@ -17,6 +18,7 @@ import { UsersModule } from './users/users.module';
     }),
     AuthModule,
     UsersModule,
+    PagesModule,
   ],
 })
 export class AppModule {}

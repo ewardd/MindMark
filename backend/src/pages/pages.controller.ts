@@ -15,8 +15,8 @@ export class PagesController {
   public constructor(private readonly _pagesService: PagesService) {}
 
   @Post()
-  public create(@Body() createPageDto: CreatePageDto) {
-    return this._pagesService.create(createPageDto);
+  public create(@Body() createPageDto: CreatePageDto, @UseUserContext() user: IUserContext): Promise<Page> {
+    return this._pagesService.create(createPageDto, user.id);
   }
 
   @Get()

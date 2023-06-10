@@ -14,9 +14,16 @@ export class PagesService {
     private readonly _pageRepository: Repository<Page>,
   ) {}
 
-  public create(createPageDto: CreatePageDto): Promise<Page> {
-    return this._pageRepository.save(createPageDto);
-  }
+  public create = async ({ title, content }: CreatePageDto, userId: User['id']): Promise<Page> => {
+    const page = this._pageRepository.create({
+      author: { id: userId },
+      title,
+      content,
+    });
+
+    const { id } = await this._pageRepository.save(page);
+    return this.findOne(id);
+  };
 
   public findAll = (query: PaginateQuery, userId: User['id']): Promise<Paginated<Page>> =>
     paginate(query, this._pageRepository, {

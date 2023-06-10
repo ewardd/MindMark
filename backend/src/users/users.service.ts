@@ -17,7 +17,7 @@ export class UsersService {
   };
 
   public findOneByEmail = (email: string): Promise<User | null> => {
-    return this._userRepository.findOneBy({ email, isActive: true });
+    return this._userRepository.findOneBy({ email });
   };
 
   public update = async (id: string, { password, ...updateUserDto }: UpdateUserDto): Promise<User> => {

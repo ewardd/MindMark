@@ -1,16 +1,5 @@
 import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
-import {
-  Body,
-  ClassSerializerInterceptor,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  ParseUUIDPipe,
-  Patch,
-  Post,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
 import { CreatePageDto } from './dto/create-page.dto';
 import { Page } from 'src/pages/entities/page.entity';
 import { PagesService } from './pages.service';
@@ -20,7 +9,6 @@ import { UpdatePageDto } from './dto/update-page.dto';
 
 @Controller('pages')
 @ApiBearerAuth()
-@UseInterceptors(ClassSerializerInterceptor)
 export class PagesController {
   public constructor(private readonly _pagesService: PagesService) {}
 

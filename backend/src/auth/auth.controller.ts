@@ -1,15 +1,6 @@
 import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
 import { AuthService } from 'src/auth/auth.service';
-import {
-  Body,
-  ClassSerializerInterceptor,
-  Controller,
-  Get,
-  Post,
-  UnauthorizedException,
-  UseGuards,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Get, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { IUserContext } from 'src/auth/types/RequestContext';
 import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
 import { LocalAuthGuard } from 'src/auth/gurds/local-auth.guard';
@@ -21,7 +12,6 @@ import { User } from 'src/users/entities/user.entity';
 import { UsersService } from 'src/users/users.service';
 
 @Controller('auth')
-@UseInterceptors(ClassSerializerInterceptor)
 export class AuthController {
   public constructor(private readonly _authService: AuthService, private readonly _usersService: UsersService) {}
 

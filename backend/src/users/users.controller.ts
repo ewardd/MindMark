@@ -1,22 +1,11 @@
 import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
-import {
-  Body,
-  ClassSerializerInterceptor,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  ParseUUIDPipe,
-  Patch,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from 'src/users/entities/user.entity';
 import { UsersService } from './users.service';
 
 @Controller('users')
 @ApiBearerAuth()
-@UseInterceptors(ClassSerializerInterceptor)
 export class UsersController {
   public constructor(private readonly usersService: UsersService) {}
 

@@ -19,5 +19,5 @@ export abstract class AbstractEntity {
 
   @DeleteDateColumn({ select: false })
   @Exclude()
-  public deletedAt: Date;
+  public deletedAt?: Date | null;
 }

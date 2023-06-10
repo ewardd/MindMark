@@ -5,6 +5,7 @@ import { Page } from 'src/pages/entities/page.entity';
 import { PaginateQuery, Paginated, paginate } from 'nestjs-paginate';
 import { Repository } from 'typeorm';
 import { UpdatePageDto } from './dto/update-page.dto';
+import { User } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class PagesService {
@@ -17,13 +18,14 @@ export class PagesService {
     return this._pageRepository.save(createPageDto);
   }
 
-  public findAll = (query: PaginateQuery): Promise<Paginated<Page>> =>
+  public findAll = (query: PaginateQuery, userId: User['id']): Promise<Paginated<Page>> =>
     paginate(query, this._pageRepository, {
       sortableColumns: ['id', 'author.email', 'title'],
       nullSort: 'last',
       defaultSortBy: [['createdAt', 'DESC']],
       searchableColumns: ['title', 'content', 'author.email'],
       relations: ['author'],
+      where: { author: { id: userId } },
     });
 
   public findOne = (id: string): Promise<Page | null> => {

@@ -1,6 +1,8 @@
 import { APP_GUARD } from '@nestjs/core';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { IConfiguration } from 'src/config/configuration';
 import { JwtAuthGuard } from 'src/auth/gurds/jwt-auth.guard';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from 'src/auth/strategies/jwt.strategy';
@@ -16,10 +18,12 @@ import { UsersModule } from 'src/users/users.module';
     TypeOrmModule.forFeature([User]),
     UsersModule,
     PassportModule,
-    JwtModule.register({
-      // TODO: Move to ENV
-      secret: 'SECRET',
-      signOptions: { expiresIn: '7d' },
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: (config: ConfigService) => ({
+        ...config.get<IConfiguration['auth']>('auth'),
+      }),
+      inject: [ConfigService],
     }),
   ],
   controllers: [AuthController],

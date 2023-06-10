@@ -83,6 +83,7 @@
     "javascript.preferences.jsxAttributeCompletionStyle": "braces",
     "typescript.preferences.jsxAttributeCompletionStyle": "braces",
     "scss.lint.unknownAtRules": "ignore",
+    "tailwindCSS.experimental.configFile": "./webapp/tailwind.config.js",
     "cSpell.language": "en,ru",
     "cSpell.words": [
       "autofix",
@@ -91,6 +92,7 @@
       "nestjs",
       "reduxjs",
       "resave",
+      "Sider",
       "tailwindcss",
       "typeorm",
       "yarnpkg"

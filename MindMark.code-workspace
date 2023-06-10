@@ -39,13 +39,25 @@
       "**/.pnp.*": true
     },
     "eslint.packageManager": "yarn",
-    "eslint.nodePath": ".yarn/sdks",
+    /*
+      `eslint.nodePath` uses the relative path from `folders` section
+      So I make it relative to each webapp folder
+      and override it locally for `Backend` in `./backend/.vscode/settings.json`
+    */
+    "eslint.nodePath": "../../../.yarn/sdks",
     "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
     "typescript.tsdk": "root/.yarn/sdks/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "javascript.preferences.importModuleSpecifier": "non-relative",
     "typescript.preferences.importModuleSpecifier": "non-relative",
-    "jest.disabledWorkspaceFolders": ["App", "Pages", "Widgets", "Features", "Entities", "Shared"],
+    "jest.disabledWorkspaceFolders": [
+      "App",
+      "Pages",
+      "Widgets",
+      "Features",
+      "Entities",
+      "Shared"
+    ],
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
       "source.addMissingImports": true,
@@ -56,7 +68,18 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "git.mergeEditor": true,
     "git.branchProtection": ["master", "develop"],
-    "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX", "[ ]", "[x]", "NOTE", "WORKAROUND", "todo("],
+    "todo-tree.general.tags": [
+      "BUG",
+      "HACK",
+      "FIXME",
+      "TODO",
+      "XXX",
+      "[ ]",
+      "[x]",
+      "NOTE",
+      "WORKAROUND",
+      "todo("
+    ],
     "javascript.preferences.jsxAttributeCompletionStyle": "braces",
     "typescript.preferences.jsxAttributeCompletionStyle": "braces",
     "scss.lint.unknownAtRules": "ignore",

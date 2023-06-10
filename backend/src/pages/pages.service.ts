@@ -35,8 +35,11 @@ export class PagesService {
       where: { author: { id: userId } },
     });
 
-  public findOne = (id: string): Promise<Page | null> => {
-    return this._pageRepository.findOneBy({ id });
+  public findOne = async (id: string): Promise<Page> => {
+    const page = await this._pageRepository.findOne({ where: { id }, relations: ['author'] });
+    if (!page?.id) throw new NotFoundException();
+
+    return page;
   };
 
   public update = async (id: string, updatePageDto: UpdatePageDto): Promise<Page> => {

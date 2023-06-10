@@ -1,12 +1,13 @@
 import { ApiOkResponse } from '@nestjs/swagger';
 import { AuthService } from 'src/auth/auth.service';
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, ClassSerializerInterceptor, Controller, Post, UseInterceptors } from '@nestjs/common';
 import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
 import { Public } from 'src/auth/auth.guard';
 import { SignInDto } from 'src/auth/dto/sign-in.dto';
 import { SignUpDto } from 'src/auth/dto/sign-up.dto';
 
 @Controller('auth')
+@UseInterceptors(ClassSerializerInterceptor)
 export class AuthController {
   public constructor(private readonly _authService: AuthService) {}
 

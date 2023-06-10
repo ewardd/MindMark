@@ -2735,6 +2735,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/config@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "@nestjs/config@npm:2.3.2"
+  dependencies:
+    dotenv: 16.0.3
+    dotenv-expand: 10.0.0
+    lodash: 4.17.21
+    uuid: 9.0.0
+  peerDependencies:
+    "@nestjs/common": ^7.0.0 || ^8.0.0 || ^9.0.0
+    reflect-metadata: ^0.1.13
+    rxjs: ^6.0.0 || ^7.2.0
+  checksum: 400167392400c06889d51a0c79a6173760231cbff7e0437d56922a76bf3bd494230072e4b5e4cdb52ec15df571797d9a1f61581237b3230477922d470718dd24
+  languageName: node
+  linkType: hard
+
 "@nestjs/core@npm:^9.4.2":
   version: 9.4.2
   resolution: "@nestjs/core@npm:9.4.2"
@@ -2789,6 +2805,16 @@ __metadata:
     class-validator:
       optional: true
   checksum: 85f295a1474c6dd1b6fb07556f744fee138571f3c6a4c5e693c72bddc716aeb8e73c02f8146fb3457e4e4a604559aa6c40985e3fbf1b3aadc0ea04a6970016d1
+  languageName: node
+  linkType: hard
+
+"@nestjs/passport@npm:^9.0.3":
+  version: 9.0.3
+  resolution: "@nestjs/passport@npm:9.0.3"
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0
+    passport: ^0.4.0 || ^0.5.0 || ^0.6.0
+  checksum: 113148a68eef4c1036d6d3e7037376093706c9eeef005338c39d85161e3beab8c8188a61201bbec881c075641687325dd74f1b9200ab37b91983cf953f2b8774
   languageName: node
   linkType: hard
 
@@ -3121,6 +3147,13 @@ __metadata:
     react-redux:
       optional: true
   checksum: 54672c5593d05208af577e948a338f23128d3aa01ef056ab0d40bcfa14400cf6566be99e11715388f12c1d7655cdf7c5c6b63cb92eb0fecf996c454a46a3914c
+  languageName: node
+  linkType: hard
+
+"@remix-run/router@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@remix-run/router@npm:1.6.3"
+  checksum: f6968b1626af930b42f8cb5a044f05e4fbce05af6c7947beb1704e45c9570944e3be16ee008b185e5e13baac97948299eb55341b2a359c3e2e54b9d6646ae167
   languageName: node
   linkType: hard
 
@@ -3570,6 +3603,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/compose-function@npm:^0.0.30":
+  version: 0.0.30
+  resolution: "@types/compose-function@npm:0.0.30"
+  checksum: 26d793d9f8bafc575a9f714ebe3d7c49e81bd6d28085eabfe2afea5554b73e4c0c0bfef38184554c8b289d61b49e9dff0159d5a46e3bca21349e1b8549db6386
+  languageName: node
+  linkType: hard
+
 "@types/connect-history-api-fallback@npm:^1.3.5":
   version: 1.5.0
   resolution: "@types/connect-history-api-fallback@npm:1.5.0"
@@ -3681,6 +3721,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/history@npm:^4.7.11":
+  version: 4.7.11
+  resolution: "@types/history@npm:4.7.11"
+  checksum: c92e2ba407dcab0581a9afdf98f533aa41b61a71133420a6d92b1ca9839f741ab1f9395b17454ba5b88cb86020b70b22d74a1950ccfbdfd9beeaa5459fdc3464
+  languageName: node
+  linkType: hard
+
 "@types/hoist-non-react-statics@npm:^3.3.1":
   version: 3.3.1
   resolution: "@types/hoist-non-react-statics@npm:3.3.1"
@@ -3756,6 +3803,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jsonwebtoken@npm:*":
+  version: 9.0.2
+  resolution: "@types/jsonwebtoken@npm:9.0.2"
+  dependencies:
+    "@types/node": "*"
+  checksum: 3bb8d40e78d7eb53e427db6e9f0f22e0890cfee80965dcf741d08341814913afb211306de6e9847c6d241cc8e36f8a59090cbfdcc510ab7c81af9d650c5afe0e
+  languageName: node
+  linkType: hard
+
 "@types/jsonwebtoken@npm:9.0.1":
   version: 9.0.1
   resolution: "@types/jsonwebtoken@npm:9.0.1"
@@ -3816,6 +3872,56 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/passport-jwt@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "@types/passport-jwt@npm:3.0.8"
+  dependencies:
+    "@types/express": "*"
+    "@types/jsonwebtoken": "*"
+    "@types/passport-strategy": "*"
+  checksum: 321eca319eff51c87a5ddebf590937b24ed7fa6c8cc2465cecb4edf49f839b7770e57a4ed009f323c66ade6c0f1d9b6a51033d82dd392270b17976380893af2f
+  languageName: node
+  linkType: hard
+
+"@types/passport-local@npm:^1":
+  version: 1.0.35
+  resolution: "@types/passport-local@npm:1.0.35"
+  dependencies:
+    "@types/express": "*"
+    "@types/passport": "*"
+    "@types/passport-strategy": "*"
+  checksum: b4ed4c40d2c7c42370c8a0ca7e18728bf3dbf2a56171d45c4f4d0281af9d91595ef9677a4f47ef10fdd5374a917b0ea64fb02d44ff4c424e48965e92915da294
+  languageName: node
+  linkType: hard
+
+"@types/passport-strategy@npm:*":
+  version: 0.2.35
+  resolution: "@types/passport-strategy@npm:0.2.35"
+  dependencies:
+    "@types/express": "*"
+    "@types/passport": "*"
+  checksum: e5949063ad8977ce1f7cf2a5df6bc379c4d43a959c9946bfed6570ef379c6c12d1713212a29b3b5aafc631c5ebe9bfe082116f3e75ca1bf45d79dd889671532d
+  languageName: node
+  linkType: hard
+
+"@types/passport@npm:*":
+  version: 1.0.12
+  resolution: "@types/passport@npm:1.0.12"
+  dependencies:
+    "@types/express": "*"
+  checksum: 2bce41b248566d8c2aeafcb38f105e3521d42a572e92da9edc5eb669f1b3cb02e5911c9d124191f67d432b677562a885b6ad7f56320c712df1e87ba7619eb8a4
+  languageName: node
+  linkType: hard
+
+"@types/passport@npm:^0":
+  version: 0.4.7
+  resolution: "@types/passport@npm:0.4.7"
+  dependencies:
+    "@types/express": "*"
+  checksum: c22a84226d763db30cc6d8b330022820d067ea4039dc625371825e0d2fb8e3d6e7387cf4619e79a4cc293e8c3f3420f3da3067c564da14c21fadb03b5f5c870f
+  languageName: node
+  linkType: hard
+
 "@types/prettier@npm:^2.1.5":
   version: 2.7.3
   resolution: "@types/prettier@npm:2.7.3"
@@ -3857,6 +3963,27 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 8301f35cf1cbfec8c723e9477aecf87774e3c168bd457d353b23c45064737213d3e8008b067c6767b7b08e4f2b3823ee239242a6c225fc91e7f8725ef8734124
+  languageName: node
+  linkType: hard
+
+"@types/react-router-dom@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "@types/react-router-dom@npm:5.3.3"
+  dependencies:
+    "@types/history": ^4.7.11
+    "@types/react": "*"
+    "@types/react-router": "*"
+  checksum: 28c4ea48909803c414bf5a08502acbb8ba414669b4b43bb51297c05fe5addc4df0b8fd00e0a9d1e3535ec4073ef38aaafac2c4a2b95b787167d113bc059beff3
+  languageName: node
+  linkType: hard
+
+"@types/react-router@npm:*, @types/react-router@npm:^5.1.20":
+  version: 5.1.20
+  resolution: "@types/react-router@npm:5.1.20"
+  dependencies:
+    "@types/history": ^4.7.11
+    "@types/react": "*"
+  checksum: 128764143473a5e9457ddc715436b5d49814b1c214dde48939b9bef23f0e77f52ffcdfa97eb8d3cc27e2c229869c0cdd90f637d887b62f2c9f065a87d6425419
   languageName: node
   linkType: hard
 
@@ -4742,6 +4869,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"arity-n@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "arity-n@npm:1.0.4"
+  checksum: 3d76e16907f7b8a9452690c1efc301d0fbecea457365797eccfbade9b8d1653175b2c38343201bf26fdcbf0bcbb31eab6d912e7c008c6d19042301dc0be80a73
+  languageName: node
+  linkType: hard
+
 "array-buffer-byte-length@npm:^1.0.0":
   version: 1.0.0
   resolution: "array-buffer-byte-length@npm:1.0.0"
@@ -5152,8 +5286,10 @@ __metadata:
   dependencies:
     "@nestjs/cli": ^9.5.0
     "@nestjs/common": ^9.4.2
+    "@nestjs/config": ^2.3.2
     "@nestjs/core": ^9.4.2
     "@nestjs/jwt": ^10.0.3
+    "@nestjs/passport": ^9.0.3
     "@nestjs/platform-express": ^9.4.2
     "@nestjs/schematics": ^9.2.0
     "@nestjs/swagger": ^6.3.0
@@ -5164,6 +5300,9 @@ __metadata:
     "@types/jest": 29.5.2
     "@types/lodash": ^4.14.195
     "@types/node": 20.2.5
+    "@types/passport": ^0
+    "@types/passport-jwt": ^3.0.8
+    "@types/passport-local": ^1
     "@types/supertest": ^2.0.12
     "@typescript-eslint/eslint-plugin": ^5.59.9
     "@typescript-eslint/parser": ^5.59.9
@@ -5181,6 +5320,9 @@ __metadata:
     jest: 29.5.0
     lodash: ^4.17.21
     nestjs-paginate: ^8.1.4
+    passport: ^0.6.0
+    passport-jwt: ^4.0.1
+    passport-local: ^1.0.0
     pg: ^8.11.0
     prettier: ^2.8.8
     reflect-metadata: ^0.1.13
@@ -5998,6 +6140,15 @@ __metadata:
   version: 1.3.0
   resolution: "component-emitter@npm:1.3.0"
   checksum: b3c46de38ffd35c57d1c02488355be9f218e582aec72d72d1b8bbec95a3ac1b38c96cd6e03ff015577e68f550fbb361a3bfdbd9bb248be9390b7b3745691be6b
+  languageName: node
+  linkType: hard
+
+"compose-function@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "compose-function@npm:3.0.3"
+  dependencies:
+    arity-n: ^1.0.4
+  checksum: 9f17d431e3ee4797c844f2870e13494079882ac3dbc54c143b7d99967b371908e0ce7ceb71c6aed61e2ecddbcd7bb437d91428a3d0e6569aee17a87fcbc7918f
   languageName: node
   linkType: hard
 
@@ -6991,10 +7142,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv-expand@npm:10.0.0":
+  version: 10.0.0
+  resolution: "dotenv-expand@npm:10.0.0"
+  checksum: 2a38b470efe0abcb1ac8490421a55e1d764dc9440fd220942bce40965074f3fb00b585f4346020cb0f0f219966ee6b4ee5023458b3e2953fe5b3214de1b314ee
+  languageName: node
+  linkType: hard
+
 "dotenv-expand@npm:^5.1.0":
   version: 5.1.0
   resolution: "dotenv-expand@npm:5.1.0"
   checksum: 8017675b7f254384915d55f9eb6388e577cf0a1231a28d54b0ca03b782be9501b0ac90ac57338636d395fa59051e6209e9b44b8ddf169ce6076dffb5dea227d3
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:16.0.3":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
   languageName: node
   linkType: hard
 
@@ -10924,7 +11089,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonwebtoken@npm:9.0.0":
+"jsonwebtoken@npm:9.0.0, jsonwebtoken@npm:^9.0.0":
   version: 9.0.0
   resolution: "jsonwebtoken@npm:9.0.0"
   dependencies:
@@ -12620,6 +12785,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"passport-jwt@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "passport-jwt@npm:4.0.1"
+  dependencies:
+    jsonwebtoken: ^9.0.0
+    passport-strategy: ^1.0.0
+  checksum: 0669d5bf8fc18ee57eb39601491c59ac084acfa6c972e0a3289e9d88a3ee6fab9e9fb279f359eee81939fedb66904c4a74423004480b60c54621af0d7b2ee0d5
+  languageName: node
+  linkType: hard
+
+"passport-local@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "passport-local@npm:1.0.0"
+  dependencies:
+    passport-strategy: 1.x.x
+  checksum: 86dc08b12f05f0ce1bb109780ccb0377eff45bbba70aa9c0d65f092b3ef476d344c0443517db2e9f3e5ec0ca849171ab25fb622164e0f69a677173af42b9bba7
+  languageName: node
+  linkType: hard
+
+"passport-strategy@npm:1.x.x, passport-strategy@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "passport-strategy@npm:1.0.0"
+  checksum: 5086693f2508e538dffa55a338c89fe8192fb5f4478c71f80cd5890b8573419a098f4fec88b505374f60bbe9049f6f24b9f3992678612528a3370b4dc73354a2
+  languageName: node
+  linkType: hard
+
+"passport@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "passport@npm:0.6.0"
+  dependencies:
+    passport-strategy: 1.x.x
+    pause: 0.0.1
+    utils-merge: ^1.0.1
+  checksum: ef932ad671d50de34765c7a53cd1e058d8331a82a6df09265a9c6c1168911aee4a7b5215803d0101110ab7f317e096b4954ca7e18fb2c33b9929f0bd17dbe159
+  languageName: node
+  linkType: hard
+
 "path-exists@npm:^3.0.0":
   version: 3.0.0
   resolution: "path-exists@npm:3.0.0"
@@ -12690,6 +12892,13 @@ __metadata:
   version: 4.0.0
   resolution: "path-type@npm:4.0.0"
   checksum: 5b1e2daa247062061325b8fdbfd1fb56dde0a448fb1455453276ea18c60685bdad23a445dc148cf87bc216be1573357509b7d4060494a6fd768c7efad833ee45
+  languageName: node
+  linkType: hard
+
+"pause@npm:0.0.1":
+  version: 0.0.1
+  resolution: "pause@npm:0.0.1"
+  checksum: e96ee581b68085e6f2ba5adbcb4d4a41fe88e5b514061e76df2fe1905f0f65f4fe5a843b538e9551122c6b9184ff4be266c2ee0ea4614702f9a3d04466d9f462
   languageName: node
   linkType: hard
 
@@ -14748,6 +14957,30 @@ __metadata:
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
   checksum: 112178a05b1e0ffeaf5d9fb4e56b4410a34a73adeb04dbf13abdc50d9ac9df2ada83e81485156cca0b3fa296aa3612751b3d6cd13be4464642a43679b819cbc7
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:^6.12.1":
+  version: 6.12.1
+  resolution: "react-router-dom@npm:6.12.1"
+  dependencies:
+    "@remix-run/router": 1.6.3
+    react-router: 6.12.1
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 885528986b6e32bde0cc6ff1f318186ce6931cf4a2a36511fe12eafb380576b448a991d43fe473dbb9bc97bb7efa0c87ac179a7470345a1d3534a34b65578677
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.12.1, react-router@npm:^6.12.1":
+  version: 6.12.1
+  resolution: "react-router@npm:6.12.1"
+  dependencies:
+    "@remix-run/router": 1.6.3
+  peerDependencies:
+    react: ">=16.8"
+  checksum: a23a0f2e6635eba19aec8d50b9126f61663d1e6ee6e69d6b2ca6e5dd678496b54d925f0d86a375270646da11cc12be66ac5e6ebf73962957af91ac828b63d10b
   languageName: node
   linkType: hard
 
@@ -17267,7 +17500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"utils-merge@npm:1.0.1":
+"utils-merge@npm:1.0.1, utils-merge@npm:^1.0.1":
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: c81095493225ecfc28add49c106ca4f09cdf56bc66731aa8dabc2edbbccb1e1bfe2de6a115e5c6a380d3ea166d1636410b62ef216bb07b3feb1cfde1d95d5080
@@ -17283,7 +17516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.0":
+"uuid@npm:9.0.0, uuid@npm:^9.0.0":
   version: 9.0.0
   resolution: "uuid@npm:9.0.0"
   bin:
@@ -17443,14 +17676,18 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.4.3
+    "@types/compose-function": ^0.0.30
     "@types/jest": ^29.5.2
     "@types/node": ^20.2.5
     "@types/react": ^18.2.9
     "@types/react-dom": ^18.2.4
+    "@types/react-router": ^5.1.20
+    "@types/react-router-dom": ^5.3.3
     "@typescript-eslint/eslint-plugin": ^5.59.9
     "@typescript-eslint/parser": ^5.59.9
     antd: ^5.6.1
     classnames: ^2.3.2
+    compose-function: ^3.0.3
     eslint: ^8.42.0
     eslint-config-prettier: ^8.8.0
     eslint-config-react-app: ^7.0.1
@@ -17466,6 +17703,8 @@ __metadata:
     react-dom: ^18.2.0
     react-markdown: ^8.0.7
     react-redux: ^8.0.7
+    react-router: ^6.12.1
+    react-router-dom: ^6.12.1
     react-scripts: 5.0.1
     redux: ^4.2.1
     sass: ^1.63.1

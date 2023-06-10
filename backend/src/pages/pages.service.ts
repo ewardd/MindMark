@@ -5,6 +5,7 @@ import { Page } from 'src/pages/entities/page.entity';
 import { PaginateQuery, Paginated, paginate } from 'nestjs-paginate';
 import { Repository } from 'typeorm';
 import { UpdatePageDto } from './dto/update-page.dto';
+import { User } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class PagesService {
@@ -13,30 +14,42 @@ export class PagesService {
     private readonly _pageRepository: Repository<Page>,
   ) {}
 
-  public create(createPageDto: CreatePageDto): Promise<Page> {
-    return this._pageRepository.save(createPageDto);
-  }
+  public create = async ({ title, content }: CreatePageDto, userId: User['id']): Promise<Page> => {
+    const page = this._pageRepository.create({
+      author: { id: userId },
+      title,
+      content,
+    });
 
-  public findAll = (query: PaginateQuery): Promise<Paginated<Page>> =>
+    const { id } = await this._pageRepository.save(page);
+    return this.findOne(id);
+  };
+
+  public findAll = (query: PaginateQuery, userId: User['id']): Promise<Paginated<Page>> =>
     paginate(query, this._pageRepository, {
       sortableColumns: ['id', 'author.email', 'title'],
       nullSort: 'last',
       defaultSortBy: [['createdAt', 'DESC']],
       searchableColumns: ['title', 'content', 'author.email'],
       relations: ['author'],
+      where: { author: { id: userId } },
     });
 
-  public findOne = (id: string): Promise<Page | null> => {
-    return this._pageRepository.findOneBy({ id });
+  public findOne = async (id: string): Promise<Page> => {
+    const page = await this._pageRepository.findOne({ where: { id }, relations: ['author'] });
+    if (!page?.id) throw new NotFoundException();
+
+    return page;
   };
 
-  public update = async (id: string, updatePageDto: UpdatePageDto): Promise<Page> => {
+  public update = async (id: string, { title, content, isCompleted }: UpdatePageDto): Promise<Page> => {
     const page = await this.findOne(id);
     if (!page?.id) throw new NotFoundException();
 
-    Object.assign(page, updatePageDto);
+    Object.assign(page, { title, content, isCompleted });
 
-    return this._pageRepository.save(page);
+    await this._pageRepository.save(page);
+    return await this.findOne(id);
   };
 
   public remove = async (id: string): Promise<boolean> => !!(await this._pageRepository.softDelete(id)).affected;

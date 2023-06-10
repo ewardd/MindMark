@@ -1,10 +1,16 @@
-import { ApiProperty, PartialType } from '@nestjs/swagger';
+import { ApiPropertyOptional, PartialType } from '@nestjs/swagger';
 import { CreatePageDto } from './create-page.dto';
-import { IsNotEmpty, IsUUID } from 'class-validator';
+import { IsBoolean, IsOptional } from 'class-validator';
 
 export class UpdatePageDto extends PartialType(CreatePageDto) {
-  @IsUUID()
-  @IsNotEmpty()
-  @ApiProperty()
-  public id: string;
+  @IsOptional()
+  public title?: string;
+
+  @IsOptional()
+  public content?: string;
+
+  @ApiPropertyOptional()
+  @IsBoolean()
+  @IsOptional()
+  public isCompleted?: boolean;
 }

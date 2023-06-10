@@ -10,10 +10,6 @@ export class User extends AbstractEntity {
   @ApiProperty()
   public email: string;
 
-  @Column({ default: true })
-  @ApiProperty()
-  public isActive: boolean;
-
   @Column({ select: false })
   @Exclude()
   public passwordHash: string;

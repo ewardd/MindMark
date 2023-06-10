@@ -42,13 +42,14 @@ export class PagesService {
     return page;
   };
 
-  public update = async (id: string, updatePageDto: UpdatePageDto): Promise<Page> => {
+  public update = async (id: string, { title, content, isCompleted }: UpdatePageDto): Promise<Page> => {
     const page = await this.findOne(id);
     if (!page?.id) throw new NotFoundException();
 
-    Object.assign(page, updatePageDto);
+    Object.assign(page, { title, content, isCompleted });
 
-    return this._pageRepository.save(page);
+    await this._pageRepository.save(page);
+    return await this.findOne(id);
   };
 
   public remove = async (id: string): Promise<boolean> => !!(await this._pageRepository.softDelete(id)).affected;

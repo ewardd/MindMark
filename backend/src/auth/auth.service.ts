@@ -17,7 +17,7 @@ export class AuthService {
 
   public signIn = async (email: string, password: string): Promise<JwtResponse> => {
     const user = await this._userRepository.findOne({
-      where: { email, isActive: true },
+      where: { email },
       select: ['id', 'email', 'passwordHash'],
     });
 

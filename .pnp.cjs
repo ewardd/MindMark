@@ -6175,6 +6175,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:20.2.5"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:20.2.6", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.2.6-2361edc0b5-5222bceb18.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:20.2.6"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/parse-json", [\
@@ -6313,18 +6320,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-router", "npm:5.1.20"],\
             ["@types/history", "npm:4.7.11"],\
             ["@types/react", "npm:18.2.9"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/react-router-dom", [\
-        ["npm:5.3.3", {\
-          "packageLocation": "./.yarn/cache/@types-react-router-dom-npm-5.3.3-9f687b5b3a-28c4ea4890.zip/node_modules/@types/react-router-dom/",\
-          "packageDependencies": [\
-            ["@types/react-router-dom", "npm:5.3.3"],\
-            ["@types/history", "npm:4.7.11"],\
-            ["@types/react", "npm:18.2.9"],\
-            ["@types/react-router", "npm:5.1.20"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -24127,11 +24122,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/user-event", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:14.4.3"],\
             ["@types/compose-function", "npm:0.0.30"],\
             ["@types/jest", "npm:29.5.2"],\
-            ["@types/node", "npm:20.2.5"],\
+            ["@types/node", "npm:20.2.6"],\
             ["@types/react", "npm:18.2.9"],\
             ["@types/react-dom", "npm:18.2.4"],\
             ["@types/react-router", "npm:5.1.20"],\
-            ["@types/react-router-dom", "npm:5.3.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:5.59.9"],\
             ["@typescript-eslint/parser", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:5.59.9"],\
             ["antd", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:5.6.1"],\

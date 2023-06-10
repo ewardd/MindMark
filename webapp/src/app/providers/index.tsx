@@ -1,4 +1,5 @@
-import compose from "compose-function";
-import { withRouter } from "./WithRouter";
+import compose from 'compose-function';
+import { withRedux } from './redux';
+import { withRouter } from './withRouter';
 
-export const withProviders = compose(withRouter);
+export const withProviders = compose(withRedux, withRouter);

@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseHeader from '@widgets/Header';
-import BaseSider from '@widgets/Sider';
-import BaseLayout from '@shared/ui';
+import { BaseSider } from '@widgets/Sider';
+import { BaseLayout } from '@shared/ui';
 
 interface ISignUpProps {
   className?: string;

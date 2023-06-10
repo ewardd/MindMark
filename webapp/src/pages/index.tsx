@@ -1,14 +1,20 @@
 import { lazy } from 'react';
-import { Route, Navigate, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { WithAuth } from '@widgets/Auth';
 
-const SignUp = lazy(() => import('@pages/SignUp'));
+const SignIn = lazy(() => import('@pages/SignIn'));
+const TestPage = lazy(() => import('@pages/TestPage'));
 
 export const Routing = () => {
   return (
     <Routes>
-      <Route path={'/SignUp'} element={<SignUp />} />
-      {/* <Route path="/lab" element={<Lab />} />  */}
-      <Route path={'*'} element={<Navigate to={'/'} replace />} />
+      <Route element={<WithAuth />}>
+        <Route path={'/dashboard'} element={<TestPage />} />
+      </Route>
+
+      <Route path={'/sign-in'} element={<SignIn />} />
+
+      <Route path={'*'} element={<Navigate to={'/sign-in'} replace />} />
     </Routes>
   );
 };

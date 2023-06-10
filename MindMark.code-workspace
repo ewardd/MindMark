@@ -92,6 +92,7 @@
       "nestjs",
       "reduxjs",
       "resave",
+      "Sider",
       "tailwindcss",
       "typeorm",
       "yarnpkg"

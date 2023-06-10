@@ -1,5 +1,7 @@
 import { AuthUtils } from 'src/utils/Auth';
-import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
+import { IJwtPayload } from 'src/auth/types/JwtPayload';
+import { IUserContext } from 'src/auth/types/RequestContext';
 import { InjectRepository } from '@nestjs/typeorm';
 import { JwtResponse } from 'src/auth/dto/jwt-response.dto';
 import { JwtService } from '@nestjs/jwt';
@@ -12,22 +14,35 @@ export class AuthService {
   public constructor(
     @InjectRepository(User)
     private readonly _userRepository: Repository<User>,
-    private readonly jwtService: JwtService,
+    private readonly _jwtService: JwtService,
   ) {}
 
-  public signIn = async (email: string, password: string): Promise<JwtResponse> => {
+  public validateUser = async (email: string, password: string): Promise<User | null> => {
     const user = await this._userRepository.findOne({
       where: { email },
       select: ['id', 'email', 'passwordHash'],
     });
 
-    if (!user || !(await AuthUtils.comparePassword(user.passwordHash, password)))
-      throw new UnauthorizedException('Wrong email or password');
+    if (!user) return null;
 
-    return this.getJwtByUser(user);
+    const isSamePassword = await AuthUtils.comparePassword(user.passwordHash, password);
+    if (!isSamePassword) return null;
+
+    return user;
   };
 
-  public signUp = async ({ password, ...signUpDto }: SignUpDto): Promise<JwtResponse> => {
+  public async login(user: IUserContext): Promise<JwtResponse> {
+    const payload: IJwtPayload = { email: user.email, sub: user.id };
+
+    return {
+      access_token: this._jwtService.sign(payload),
+    };
+  }
+
+  public registerUser = async ({ password, ...signUpDto }: SignUpDto): Promise<JwtResponse> => {
+    if (await this.checkExistingUser(signUpDto.email))
+      throw new ConflictException('User with this Email is already registered');
+
     const user = new User();
     Object.assign(user, signUpDto);
 
@@ -36,14 +51,12 @@ export class AuthService {
     const newUser = await this._userRepository.save(user);
     if (!newUser?.id) throw new BadRequestException('Failed to register');
 
-    return this.getJwtByUser(user);
+    return this.login(user);
   };
 
-  private readonly getJwtByUser = async (user: User): Promise<JwtResponse> => {
-    const payload = { sub: user.id, email: user.email };
+  private readonly checkExistingUser = async (email: string): Promise<boolean> => {
+    const foundUser = await this._userRepository.findOneBy({ email });
 
-    return {
-      access_token: await this.jwtService.signAsync(payload),
-    };
+    return !!foundUser;
   };
 }

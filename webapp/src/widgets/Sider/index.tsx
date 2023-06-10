@@ -1,1 +1,1 @@
-export { BaseSider as default } from './Sider';
+export { BaseSider } from './Sider';

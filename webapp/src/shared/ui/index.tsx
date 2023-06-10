@@ -1,1 +1,2 @@
-export { BaseLayout as default } from './Layout';
+export * from './BaseLayout';
+export * from './UnauthorizedLayout';

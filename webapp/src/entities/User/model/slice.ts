@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { logout } from '@shared/model';
 import { IUser } from './types';
 
 interface IUserState {
@@ -17,6 +18,7 @@ export const userSlice = createSlice({
       state.user = action.payload;
     },
   },
+  extraReducers: (builder) => builder.addCase(logout, () => initialState),
 });
 
 export default userSlice.reducer;

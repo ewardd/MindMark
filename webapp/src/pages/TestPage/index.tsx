@@ -1,6 +1,5 @@
 import { Button, Typography } from 'antd';
-import { logout } from '@entities/Session';
-import { useAppDispatch } from '@shared/model';
+import { logout, useAppDispatch } from '@shared/model';
 
 // TODO: Remove
 const TestPage = () => {

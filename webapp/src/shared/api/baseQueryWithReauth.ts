@@ -1,6 +1,7 @@
 import { FetchArgs, BaseQueryApi, FetchBaseQueryError, FetchBaseQueryMeta } from '@reduxjs/toolkit/dist/query';
 import { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import { notification } from 'antd';
+import { baseApi } from '@shared/api';
 import { logout } from '@shared/hooks';
 import { baseQuery } from './baseQuery';
 
@@ -20,6 +21,7 @@ export async function baseQueryWithReauth(
   if (isRevalidateTokenError(result.error)) {
     // TODO: [MM-62] Add reauth logic
     api.dispatch(logout());
+    api.dispatch(baseApi.util.resetApiState());
   }
 
   return result;

@@ -86,6 +86,7 @@
     "tailwindCSS.experimental.configFile": "./webapp/tailwind.config.js",
     "cSpell.language": "en,ru",
     "cSpell.words": [
+      "autodocs",
       "autofix",
       "linebreak",
       "mindmark",

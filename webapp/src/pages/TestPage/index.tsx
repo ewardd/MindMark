@@ -1,15 +1,15 @@
 import { Button, Typography } from 'antd';
-import { logout, useAppDispatch } from '@shared/model';
+import { useLogout } from '@shared/hooks';
 
 // TODO: Remove
 const TestPage = () => {
-  const dispatch = useAppDispatch();
+  const logout = useLogout();
 
   return (
     <div>
       <Typography.Text>Auth done</Typography.Text>
 
-      <Button onClick={() => dispatch(logout())}>Logout</Button>
+      <Button onClick={logout}>Logout</Button>
     </div>
   );
 };

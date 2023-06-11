@@ -1,7 +1,7 @@
 import { FetchArgs, BaseQueryApi, FetchBaseQueryError, FetchBaseQueryMeta } from '@reduxjs/toolkit/dist/query';
 import { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import { notification } from 'antd';
-import { logout } from '@shared/model';
+import { logout } from '@shared/hooks';
 import { baseQuery } from './baseQuery';
 
 export async function baseQueryWithReauth(

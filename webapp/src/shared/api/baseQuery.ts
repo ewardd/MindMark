@@ -5,7 +5,7 @@ import {
   type FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/dist/query/fetchBaseQuery';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RootState } from '@shared/model';
+import { RootState } from '@shared/hooks';
 
 const BASE_URL = process.env.REACT_APP_SERVER_ENDPOINT as string;
 

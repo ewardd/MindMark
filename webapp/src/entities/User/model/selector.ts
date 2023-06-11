@@ -1,4 +1,4 @@
-import { useAppSelector } from '@shared/model';
+import { useAppSelector } from '@shared/hooks';
 import { IUser } from './types';
 
 export const useUser = (): IUser | null => {

@@ -7,7 +7,10 @@ import { LoadingPage } from '@shared/ui';
 export const WithAuth: React.FC = () => {
   const isAuthenticated = useIsAuthenticated();
 
-  const { isLoading } = useMeQuery(undefined, { skip: !isAuthenticated });
+  const { isLoading } = useMeQuery(undefined, {
+    skip: !isAuthenticated,
+    refetchOnMountOrArgChange: true,
+  });
 
   if (!isAuthenticated) {
     return <Navigate to={'/'} replace />;

@@ -10,7 +10,7 @@ export const SignUpForm: React.FC = () => {
 
   useEffect(() => {
     if (!isAuthenticated) return;
-    // TODO: Think where routes should be
+    // TODO: [MM-61] Think where routes should be
     navigate('/dashboard');
   }, [isAuthenticated, navigate]);
 
@@ -25,7 +25,7 @@ export const SignUpForm: React.FC = () => {
         <Input autoComplete={'new-password'} />
       </Form.Item>
 
-      {/* TODO : add rules */}
+      {/* TODO: [MM-69] add rules */}
 
       {/* <Form.Item label={'Confirm password'} name={'confirm-password'}>
         <Input autoComplete={'new-password'}/>

@@ -10,7 +10,7 @@ export const SignInForm: React.FC = () => {
 
   useEffect(() => {
     if (!isAuthenticated) return;
-    // TODO: Think where routes should be
+    // TODO: [MM-61] Think where routes should be
     navigate('/dashboard');
   }, [isAuthenticated, navigate]);
 

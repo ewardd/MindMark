@@ -1,36 +1,34 @@
 import { Button, Form, Input } from 'antd';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { useIsAuthenticated, useRegisterMutation } from '@entities/Session';
+import { useIsAuthenticated, useLoginMutation } from '@entities/Session';
 
-export const SignUpForm: React.FC = () => {
+export const SignInForm: React.FC = () => {
   const navigate = useNavigate();
 
   const isAuthenticated = useIsAuthenticated();
 
   useEffect(() => {
     if (!isAuthenticated) return;
-    // TODO: Think where routes should be
+    // TODO: [MM-61] Think where routes should be
     navigate('/dashboard');
   }, [isAuthenticated, navigate]);
 
-  const [register, { isLoading }] = useRegisterMutation();
-  return (
-    <Form onFinish={register} layout={'vertical'}>
-      <Form.Item label={'Email'} name={'email'}>
-        <Input />
-      </Form.Item>
-      <Form.Item label={'Password'} name={'password'}>
-        <Input />
-      </Form.Item>
-      {/* TODO : add rules */}
+  const [login, { isLoading }] = useLoginMutation();
 
-      {/* <Form.Item label={'Confirm password'} name={'confirm-password'}>
-        <Input />
-      </Form.Item> */}
+  return (
+    <Form layout={'vertical'} onFinish={login}>
+      <Form.Item label={'Email'} name={'email'}>
+        <Input autoComplete={'email'} />
+      </Form.Item>
+
+      <Form.Item label={'Password'} name={'password'}>
+        <Input.Password autoComplete={'current-password'} />
+      </Form.Item>
+
       <Form.Item className={'mb-2'}>
         <Button loading={isLoading} block type={'primary'} htmlType={'submit'}>
-          Register
+          Sign In
         </Button>
       </Form.Item>
     </Form>

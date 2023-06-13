@@ -3,7 +3,7 @@ export enum PaginationSortEnum {
   DESC = 'DESC',
 }
 
-// TODO: Deprecated. Update
+// TODO: [MM-60] Deprecated. Update
 //dev.to/omardiaa48/custom-pagination-decorator-in-nestjs-pagination-has-never-been-easier-3bl6
 export interface IPagination<T> {
   skip?: number;

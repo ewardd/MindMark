@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { logout } from '@shared/hooks';
 
 const LOCAL_STORAGE_KEY = 'token';
 
@@ -14,17 +15,18 @@ export const sessionSlice = createSlice({
   initialState,
   name: 'sessionSlice',
   reducers: {
-    logout: (state) => {
-      localStorage.removeItem(LOCAL_STORAGE_KEY);
-      state.accessToken = null;
-    },
     setAccessToken: (state, action: PayloadAction<string>) => {
       localStorage.setItem(LOCAL_STORAGE_KEY, action.payload);
       state.accessToken = action.payload;
     },
   },
+  extraReducers: (builder) =>
+    builder.addCase(logout, (state) => {
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
+      state.accessToken = null;
+    }),
 });
 
 export default sessionSlice.reducer;
 
-export const { logout, setAccessToken } = sessionSlice.actions;
+export const { setAccessToken } = sessionSlice.actions;

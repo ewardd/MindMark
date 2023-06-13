@@ -1,4 +1,4 @@
-import { useAppSelector } from '@shared/model';
+import { useAppSelector } from '@shared/hooks';
 
 export const useIsAuthenticated = () => {
   const isAuthenticated = useAppSelector((state) => state.sessionState.accessToken);

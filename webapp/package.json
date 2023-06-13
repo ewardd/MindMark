@@ -10,7 +10,9 @@
     "lint:fix": "npm run lint --fix",
     "prettier": "prettier ./ --check",
     "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix"
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "browserslist": {
     "production": [
@@ -49,12 +51,25 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
+    "@dreamworld/addon-redux": "^1.1.0",
     "@feature-sliced/eslint-config": "^0.1.0-beta.6",
+    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/addon-interactions": "^7.0.20",
+    "@storybook/addon-links": "^7.0.20",
+    "@storybook/addons": "^7.0.20",
+    "@storybook/blocks": "^7.0.20",
+    "@storybook/core-events": "^7.0.20",
+    "@storybook/preset-create-react-app": "^7.0.20",
+    "@storybook/react": "^7.0.20",
+    "@storybook/react-webpack5": "^7.0.20",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/compose-function": "^0.0.30",
     "@types/node": "^20.2.6",
+    "@types/prop-types": "^15",
     "@types/react-router": "^5.1.20",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
@@ -64,8 +79,13 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.12",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "tailwindcss": "^3.3.2"
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.20",
+    "tailwindcss": "^3.3.2",
+    "webpack": "^5.86.0"
   }
 }

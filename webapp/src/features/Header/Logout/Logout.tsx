@@ -1,10 +1,9 @@
 import { Button } from 'antd';
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { logout } from '@entities/Session';
+import { useLogout } from '@shared/hooks';
 
 export const ExitButton: React.FC = () => {
-  const dispatch = useDispatch();
+  const logout = useLogout();
 
-  return <Button onClick={() => dispatch(logout())}>Logout</Button>;
+  return <Button onClick={logout}>Logout</Button>;
 };

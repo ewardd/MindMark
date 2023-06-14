@@ -97,6 +97,7 @@
       "Sider",
       "tailwindcss",
       "typeorm",
+      "usehooks",
       "yarnpkg"
     ]
   },

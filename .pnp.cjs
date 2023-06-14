@@ -31799,6 +31799,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["usehooks-ts", [\
+        ["npm:2.9.1", {\
+          "packageLocation": "./.yarn/cache/usehooks-ts-npm-2.9.1-14c625587f-36f1e4142c.zip/node_modules/usehooks-ts/",\
+          "packageDependencies": [\
+            ["usehooks-ts", "npm:2.9.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.9.1", {\
+          "packageLocation": "./.yarn/__virtual__/usehooks-ts-virtual-8272d98e66/0/cache/usehooks-ts-npm-2.9.1-14c625587f-36f1e4142c.zip/node_modules/usehooks-ts/",\
+          "packageDependencies": [\
+            ["usehooks-ts", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.9.1"],\
+            ["@types/react", "npm:18.2.9"],\
+            ["@types/react-dom", "npm:18.2.4"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["util", [\
         ["npm:0.12.5", {\
           "packageLocation": "./.yarn/cache/util-npm-0.12.5-3668276f26-705e51f0de.zip/node_modules/util/",\
@@ -32107,6 +32133,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["storybook", "npm:7.0.20"],\
             ["tailwindcss", "npm:3.3.2"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\
+            ["usehooks-ts", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.9.1"],\
             ["web-vitals", "npm:3.3.2"],\
             ["webpack", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:5.86.0"]\
           ],\

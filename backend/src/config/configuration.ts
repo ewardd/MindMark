@@ -11,9 +11,11 @@ export interface IConfiguration {
 
   auth: {
     secret: string;
-    signOptions: {
-      expiresIn: string;
-    };
+    expiresIn: string;
+  };
+  authRefresh: {
+    secret: string;
+    expiresIn: string;
   };
 }
 
@@ -30,8 +32,10 @@ export default (): IConfiguration => ({
 
   auth: {
     secret: process.env.JWT_SECRET || 'SUPER_SECRET_STRING_WOW',
-    signOptions: {
-      expiresIn: process.env.JWT_EXPIRE || '7d',
-    },
+    expiresIn: process.env.JWT_EXPIRE || '5m',
+  },
+  authRefresh: {
+    secret: process.env.JWT_REFRESH_SECRET || 'ANOTHER_SUPER_SECRET_STRING_OH_NO',
+    expiresIn: process.env.JWT_REFRESH_EXPIRE || '7d',
   },
 });

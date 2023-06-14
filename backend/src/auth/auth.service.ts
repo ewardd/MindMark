@@ -1,5 +1,7 @@
 import { AuthUtils } from 'src/utils/Auth';
 import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { IConfiguration } from 'src/config/configuration';
 import { IJwtPayload } from 'src/auth/types/JwtPayload';
 import { IUserContext } from 'src/auth/types/RequestContext';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -15,6 +17,7 @@ export class AuthService {
     @InjectRepository(User)
     private readonly _userRepository: Repository<User>,
     private readonly _jwtService: JwtService,
+    private readonly _config: ConfigService,
   ) {}
 
   public validateUser = async (email: string, password: string): Promise<User | null> => {
@@ -31,13 +34,7 @@ export class AuthService {
     return user;
   };
 
-  public async login(user: IUserContext): Promise<JwtResponse> {
-    const payload: IJwtPayload = { email: user.email, sub: user.id };
-
-    return {
-      access_token: this._jwtService.sign(payload),
-    };
-  }
+  public login = (user: IUserContext): Promise<JwtResponse> => this.getTokens(user);
 
   public registerUser = async ({ password, ...signUpDto }: SignUpDto): Promise<JwtResponse> => {
     if (await this.checkExistingUser(signUpDto.email))
@@ -58,5 +55,26 @@ export class AuthService {
     const foundUser = await this._userRepository.findOneBy({ email });
 
     return !!foundUser;
+  };
+
+  private readonly getTokens = async (user: IUserContext): Promise<JwtResponse> => {
+    const [accessToken, refreshToken] = await Promise.all([
+      this._jwtService.signAsync(
+        {
+          sub: user.id,
+          email: user.email,
+        } as IJwtPayload,
+        this._config.get<IConfiguration['auth']>('auth'),
+      ),
+      this._jwtService.signAsync(
+        {
+          sub: user.id,
+          email: user.email,
+        } as IJwtPayload,
+        this._config.get<IConfiguration['authRefresh']>('authRefresh'),
+      ),
+    ]);
+
+    return { accessToken, refreshToken };
   };
 }

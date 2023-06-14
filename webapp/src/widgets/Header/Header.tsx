@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import React from 'react';
-import { Logout } from '@features/Header';
+import { ToggleTheme } from '@features/ToggleTheme';
 import { IUserProfileProps, UserProfile } from '@entities/User';
 import styles from './styles.module.scss';
 
@@ -17,10 +17,10 @@ export const BaseHeader: React.FC<IBaseHeaderProps> = () => {
   ];
 
   return (
-    <Layout.Header className={'flex flex-row justify-end'}>
+    <Layout.Header className={'layout-bg flex flex-row justify-end'}>
       <div className={styles.userProfile}>
         <UserProfile items={items} userName={'Eward'} />
-      </div>
+        <ToggleTheme />
     </Layout.Header>
   );
 };

@@ -1,6 +1,5 @@
-import { baseApi } from '@shared/api';
+import { baseApi, ISession, ISignInDto, ISignUpDto } from '@shared/api';
 import { setAccessToken } from './slice';
-import { ISession, ISignInDto, ISignUpDto } from './types';
 
 export const sessionApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

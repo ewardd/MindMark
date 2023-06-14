@@ -110,7 +110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons@npm:^5.1.0":
+"@ant-design/icons@npm:^5.1.0, @ant-design/icons@npm:^5.1.4":
   version: 5.1.4
   resolution: "@ant-design/icons@npm:5.1.4"
   dependencies:
@@ -22344,6 +22344,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "webapp@workspace:webapp"
   dependencies:
+    "@ant-design/icons": ^5.1.4
     "@craco/craco": ^7.1.0
     "@dreamworld/addon-redux": ^1.1.0
     "@feature-sliced/eslint-config": ^0.1.0-beta.6

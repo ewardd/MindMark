@@ -1,6 +1,5 @@
-import { Dropdown, MenuProps } from 'antd';
+import { Avatar, Button, Dropdown, MenuProps } from 'antd';
 import React from 'react';
-import styles from './styles.module.scss';
 
 export interface IUserProfileProps {
   items: MenuProps['items'];
@@ -10,10 +9,14 @@ export const UserProfile: React.FC<IUserProfileProps> = (props) => {
   const { items, userName } = props;
 
   return (
-    <div className={styles.container}>
-      <Dropdown menu={{ items }}>
-        <a onClick={(e) => e.preventDefault()}>{userName}</a>
-      </Dropdown>
-    </div>
+    <Dropdown menu={{ items, onClick: ({ domEvent }) => domEvent.preventDefault() }} trigger={['click']}>
+      <Button type={'text'} className={'space-x-2'}>
+        <Avatar shape={'circle'} size={'small'}>
+          {userName.slice(0, 2)}
+        </Avatar>
+
+        {userName}
+      </Button>
+    </Dropdown>
   );
 };

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .common-bg {
+    @apply bg-neutral-100 dark:bg-neutral-800;
+  }
+
+  .layout-bg {
+    @apply bg-neutral-300 dark:bg-neutral-900 #{!important};
+  }
+}

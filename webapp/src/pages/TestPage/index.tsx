@@ -1,16 +1,17 @@
-import { Button, Typography } from 'antd';
-import { useLogout } from '@shared/hooks';
+import { Typography } from 'antd';
+import Header from '@widgets/Header';
+import { BaseSider } from '@widgets/Sider';
+import { useMeQuery } from '@entities/User';
+import { BaseLayout } from '@shared/ui';
 
 // TODO: Remove
 const TestPage = () => {
-  const logout = useLogout();
+  const { data } = useMeQuery();
 
   return (
-    <div>
-      <Typography.Text>Auth done</Typography.Text>
-
-      <Button onClick={logout}>Logout</Button>
-    </div>
+    <BaseLayout headerSlot={<Header />} siderSlot={<BaseSider />}>
+      <Typography.Text>Auth done - {data?.email}</Typography.Text>
+    </BaseLayout>
   );
 };
 

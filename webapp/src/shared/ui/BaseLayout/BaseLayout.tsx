@@ -11,10 +11,12 @@ export const BaseLayout: React.FC<ILayoutInterface> = (props) => {
   const { children, headerSlot, siderSlot } = props;
 
   return (
-    <Layout>
+    <Layout className={'common-bg flex h-screen min-w-full'}>
       {siderSlot}
-      <Layout>
+
+      <Layout className={'common-bg'}>
         {headerSlot}
+
         <Layout.Content className={'p-4'}>{children}</Layout.Content>
       </Layout>
     </Layout>

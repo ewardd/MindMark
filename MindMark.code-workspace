@@ -82,7 +82,6 @@
     ],
     "javascript.preferences.jsxAttributeCompletionStyle": "braces",
     "typescript.preferences.jsxAttributeCompletionStyle": "braces",
-    "scss.lint.unknownAtRules": "ignore",
     "tailwindCSS.experimental.configFile": "./webapp/tailwind.config.js",
     "cSpell.language": "en,ru",
     "cSpell.words": [
@@ -97,8 +96,12 @@
       "Sider",
       "tailwindcss",
       "typeorm",
+      "usehooks",
       "yarnpkg"
-    ]
+    ],
+    "files.associations": {
+      "*.scss": "tailwindcss"
+    }
   },
   "extensions": {
     "recommendations": [

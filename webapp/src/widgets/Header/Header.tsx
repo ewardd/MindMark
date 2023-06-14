@@ -1,26 +1,32 @@
-import { Layout } from 'antd';
+import { Layout, Space } from 'antd';
 import React from 'react';
-import { Logout } from '@features/Header';
+import { ToggleTheme } from '@features/ToggleTheme';
 import { IUserProfileProps, UserProfile } from '@entities/User';
-import styles from './styles.module.scss';
+import { useLogout } from '@shared/hooks';
 
 interface IBaseHeaderProps {
   className?: string;
 }
 
 export const BaseHeader: React.FC<IBaseHeaderProps> = () => {
+  const logout = useLogout();
+
+  // TODO: Think how to make the logout button (menu feature-set) better
   const items: IUserProfileProps['items'] = [
     {
       key: 'logout',
-      label: <Logout />,
+      label: 'Logout',
+      onClick: logout,
     },
   ];
 
   return (
-    <Layout.Header className={'flex flex-row justify-end'}>
-      <div className={styles.userProfile}>
+    <Layout.Header className={'layout-bg flex flex-row justify-end'}>
+      <Space direction={'horizontal'} size={'large'}>
         <UserProfile items={items} userName={'Eward'} />
-      </div>
+
+        <ToggleTheme />
+      </Space>
     </Layout.Header>
   );
 };

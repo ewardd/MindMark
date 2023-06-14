@@ -5,7 +5,7 @@ import { User } from 'src/users/entities/user.entity';
 
 @Entity()
 export class Page extends AbstractEntity {
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { eager: true })
   @ApiProperty()
   public author: User;
 

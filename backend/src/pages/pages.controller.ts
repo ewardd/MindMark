@@ -4,8 +4,6 @@ import { CreatePageDto } from './dto/create-page.dto';
 import { IUserContext } from 'src/auth/types/RequestContext';
 import { Page } from 'src/pages/entities/page.entity';
 import { PagesService } from './pages.service';
-import { Paginate, PaginateQuery, Paginated } from 'nestjs-paginate';
-import { PaginateQueryOptions } from 'src/utils/decorators/PaginateQueryOptions';
 import { UpdatePageDto } from './dto/update-page.dto';
 import { UseUserContext } from 'src/utils/decorators/UseUserContext';
 
@@ -21,9 +19,9 @@ export class PagesController {
   }
 
   @Get()
-  @PaginateQueryOptions(Page)
-  public findAll(@Paginate() query: PaginateQuery, @UseUserContext() user: IUserContext): Promise<Paginated<Page>> {
-    return this._pagesService.findAll(query, user.id);
+  @ApiOkResponse({ type: [Page] })
+  public findAll(@UseUserContext() user: IUserContext): Promise<Page[]> {
+    return this._pagesService.findAll(user.id);
   }
 
   @Get(':id')

@@ -1,16 +1,61 @@
-import { FetchArgs, BaseQueryApi, FetchBaseQueryError, FetchBaseQueryMeta } from '@reduxjs/toolkit/dist/query';
+import { FetchBaseQueryError, FetchBaseQueryMeta, fetchBaseQuery } from '@reduxjs/toolkit/dist/query';
 import { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import { notification } from 'antd';
-import { baseApi } from '@shared/api';
+import { Mutex } from 'async-mutex';
+import { baseApi, isTokensResult, setAuthTokens } from '@shared/api';
 import { logout } from '@shared/hooks';
-import { baseQuery } from './baseQuery';
+import { baseQuery, REFRESH_TOKEN_PLACEHOLDER } from './baseQuery';
 
-export async function baseQueryWithReauth(
-  args: string | FetchArgs,
-  api: BaseQueryApi,
-  extraOptions: {},
-): Promise<QueryReturnValue<unknown, FetchBaseQueryError, FetchBaseQueryMeta>> {
-  const result = await baseQuery(args, api, extraOptions);
+const mutex = new Mutex();
+
+export const baseQueryWithReauth: ReturnType<typeof fetchBaseQuery> = async (
+  args,
+  api,
+  extraOptions,
+): Promise<QueryReturnValue<unknown, FetchBaseQueryError, FetchBaseQueryMeta>> => {
+  // Wait for mutex unlock before doing anything
+  await mutex.waitForUnlock();
+
+  let result = await baseQuery(args, api, extraOptions);
+
+  if (isRevalidateTokenError(result.error)) {
+    // Check if mutex is locked
+    if (mutex.isLocked()) {
+      // Wait for mutex unlock and retry the same query
+      await mutex.waitForUnlock();
+      result = await baseQuery(args, api, extraOptions);
+    } else {
+      // Lock mutex to perform token refresh
+      const release = await mutex.acquire();
+
+      try {
+        // Trying to fetch the `refresh` API endpoint with `refreshToken`
+        const refreshTokenResult = await baseQuery(
+          {
+            url: '/auth/refresh',
+            // Let the `baseQuery` handle header management
+            headers: { Authorization: REFRESH_TOKEN_PLACEHOLDER },
+          },
+          api,
+          extraOptions,
+        );
+
+        // Check if we actually got tokens
+        if (isTokensResult(refreshTokenResult?.data)) {
+          // If so, set 'em and retry the same query
+          api.dispatch(setAuthTokens(refreshTokenResult.data));
+          result = await baseQuery(args, api, extraOptions);
+        } else {
+          // If not, just drop the session
+          api.dispatch(logout());
+          api.dispatch(baseApi.util.resetApiState());
+        }
+      } finally {
+        // Unlock mutex
+        release();
+      }
+    }
+  }
 
   if (result.error)
     notification.error({
@@ -18,14 +63,8 @@ export async function baseQueryWithReauth(
       description: getMessageFromError(result.error),
     });
 
-  if (isRevalidateTokenError(result.error)) {
-    // TODO: [MM-62] Add reauth logic
-    api.dispatch(logout());
-    api.dispatch(baseApi.util.resetApiState());
-  }
-
   return result;
-}
+};
 
 const getMessageFromError = (error: FetchBaseQueryError | undefined | null): string | undefined => {
   if (!error) return undefined;

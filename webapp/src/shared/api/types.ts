@@ -5,7 +5,8 @@ interface IBaseEntity {
 }
 
 export interface ISession {
-  access_token: string;
+  accessToken: string;
+  refreshToken: string;
 }
 
 export interface IUser extends IBaseEntity {

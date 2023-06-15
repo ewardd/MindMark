@@ -1,5 +1,4 @@
-import { baseApi, ISession, ISignInDto, ISignUpDto } from '@shared/api';
-import { setAccessToken } from './slice';
+import { baseApi, ISession, ISignInDto, ISignUpDto, setAuthTokens } from '@shared/api';
 
 export const sessionApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -12,7 +11,7 @@ export const sessionApi = baseApi.injectEndpoints({
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          dispatch(setAccessToken(data.access_token));
+          dispatch(setAuthTokens(data));
         } catch (error) {
           console.error(error);
         }
@@ -28,7 +27,7 @@ export const sessionApi = baseApi.injectEndpoints({
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          dispatch(setAccessToken(data.access_token));
+          dispatch(setAuthTokens(data));
         } catch (error) {
           console.error(error);
         }

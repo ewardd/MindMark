@@ -1,0 +1,40 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: ["master", "devops"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        module: [backend, webapp]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: |
+          docker build -f ${{ matrix.module }}.Dockerfile -t mindmark-${{ matrix.module }}:latest "."
+
+      - name: Publish
+        # MOVE TO SECRET AND CHANGE PASS
+        run: |
+          docker tag mindmark-${{ matrix.module }}:latest registry.blackrocksoul.pw/mindmark-${{ matrix.module }}:latest
+          docker login https://registry.blackrocksoul.pw -u black -p mUYfY2D%w@#DDZex73-wCU~A
+          docker image push registry.blackrocksoul.pw/mindmark-${{ matrix.module }}:latest
+
+  sync:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync ArgoCD
+        uses: omegion/argocd-actions@v1
+        with:
+          address: "argocd.blackrocksoul.pw"
+          # MOVE TO SECRET AND CHANGE PASS
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJnaXRodWI6YXBpS2V5IiwibmJmIjoxNjg3MTUxNzM4LCJpYXQiOjE2ODcxNTE3MzgsImp0aSI6ImNmMWE1ZWU0LWYyZGQtNDk5Yy04Y2E0LTRmODJiMTZkZDE2YiJ9.j4WUWzz9HIiiHPDEqLANmynj_XrorUIYH17DzReJhig
+          action: sync
+          appName: "mind-mark"

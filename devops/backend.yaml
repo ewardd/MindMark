@@ -1,0 +1,126 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mindmark-backend
+spec:
+  selector:
+    app: mindmark-backend
+  ports:
+    - name: mindmark-backend-tcp
+      protocol: TCP
+      port: 4041
+      targetPort: http
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mindmark-backend-secret
+type: Opaque
+data:
+  jwt-secret: eWlkZGlzaCBzdHlsaXplZCB2aWxsYWdlIG91dHNlbGwgdW5ibGVzc2VkIGdhdXplIGp1ZGdl
+  jwt-refresh-secret: Y2hhcnJlZCBjYXJlZ2l2ZXIganVpY2UgZmxvc3MgcHJlY3V0IG9wcG9zaXRlIGVyYXNlZA==
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mindmark-backend
+spec:
+  selector:
+    matchLabels:
+      app: mindmark-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mindmark-backend
+    spec:
+      containers:
+        - name: mindmark-backend
+          image: registry.blackrocksoul.pw/mindmark-backend:latest
+          imagePullPolicy: Always
+          securityContext:
+            privileged: true
+          ports:
+            - name: http
+              containerPort: 4041
+              protocol: TCP
+          env:
+            - name: DATABASE_HOST
+              value: "mindmark-postgres.argocd-deployment.svc.cluster.local"
+            - name: DATABASE_PORT
+              value: "5432"
+            - name: DATABASE_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: mindmark-postgres-secret
+                  key: database
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mindmark-postgres-secret
+                  key: user
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mindmark-postgres-secret
+                  key: password
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: mindmark-backend-secret
+                  key: jwt-secret
+            - name: JWT_REFRESH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: mindmark-backend-secret
+                  key: jwt-refresh-secret
+          livenessProbe:
+            tcpSocket:
+              port: 4041
+            initialDelaySeconds: 0
+            failureThreshold: 3
+            timeoutSeconds: 1
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 4041
+            initialDelaySeconds: 0
+            failureThreshold: 3
+            timeoutSeconds: 1
+            periodSeconds: 10
+          startupProbe:
+            tcpSocket:
+              port: 4041
+            initialDelaySeconds: 30
+            failureThreshold: 10
+            timeoutSeconds: 1
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: registry-secret
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mindmark-backend-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt"
+    acme.cert-manager.io/http01-edit-in-place: "true"
+spec:
+  tls:
+    - hosts:
+        - api.mindmark.blackrocksoul.pw
+      secretName: mindmark-backend-tls
+  rules:
+    - host: api.mindmark.blackrocksoul.pw
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mindmark-backend
+                port:
+                  number: 4041

@@ -28480,7 +28480,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-refresh", "npm:0.11.0"],\
             ["resolve", "patch:resolve@npm%3A1.22.3#~builtin<compat/resolve>::version=1.22.3&hash=c3c19d"],\
             ["resolve-url-loader", "virtual:b9691462d1cd9e2763d4a13dcd20ee2b023fefa6b4b53eade424f5501661775940d78c905d1e798f57d60d1341aacca44a551caf5b3cfdf93a8867418bb95d73#npm:4.0.0"],\
-            ["sass", "npm:1.63.1"],\
+            ["sass", "npm:1.63.4"],\
             ["sass-loader", "virtual:b9691462d1cd9e2763d4a13dcd20ee2b023fefa6b4b53eade424f5501661775940d78c905d1e798f57d60d1341aacca44a551caf5b3cfdf93a8867418bb95d73#npm:12.6.0"],\
             ["semver", "npm:7.5.1"],\
             ["source-map-loader", "virtual:b9691462d1cd9e2763d4a13dcd20ee2b023fefa6b4b53eade424f5501661775940d78c905d1e798f57d60d1341aacca44a551caf5b3cfdf93a8867418bb95d73#npm:3.0.2"],\
@@ -29221,10 +29221,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.63.1", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.63.1-bf3144d760-e1dde14198.zip/node_modules/sass/",\
+        ["npm:1.63.4", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.63.4-bf5f3496c2-12bde5beff.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.63.1"],\
+            ["sass", "npm:1.63.4"],\
             ["chokidar", "npm:3.5.3"],\
             ["immutable", "npm:4.3.0"],\
             ["source-map-js", "npm:1.0.2"]\
@@ -29253,7 +29253,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["klona", "npm:2.0.6"],\
             ["neo-async", "npm:2.6.2"],\
             ["node-sass", null],\
-            ["sass", "npm:1.63.1"],\
+            ["sass", "npm:1.63.4"],\
             ["sass-embedded", null],\
             ["webpack", "virtual:93b36166c6e57acd847623d7ee49370f62c07d93945b963c9ec902d1cdae2bfe60ed6f719a108d6b0465851e99d579ad9ee7fd3f172e95528823af91aee7346c#npm:5.86.0"]\
           ],\
@@ -32141,7 +32141,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:6.12.1"],\
             ["react-scripts", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:5.0.1"],\
             ["redux", "npm:4.2.1"],\
-            ["sass", "npm:1.63.1"],\
+            ["sass", "npm:1.63.4"],\
             ["storybook", "npm:7.0.20"],\
             ["tailwindcss", "npm:3.3.2"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\

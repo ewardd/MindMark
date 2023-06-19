@@ -1,13 +1,10 @@
+import type { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import type { TypeOrmModuleOptions } from '@nestjs/typeorm';
+
 export interface IConfiguration {
   port: number;
 
-  database: {
-    host: string;
-    port: number;
-    user: string;
-    password: string;
-    database: string;
-  };
+  database: TypeOrmModuleOptions & PostgresConnectionOptions;
 
   auth: {
     secret: string;
@@ -23,9 +20,12 @@ export default (): IConfiguration => ({
   port: parseInt(process.env.PORT || '', 10) || 4041,
 
   database: {
+    type: 'postgres',
+    autoLoadEntities: true,
+    synchronize: true,
     host: process.env.DATABASE_HOST || 'localhost',
     port: parseInt(process.env.DATABASE_PORT || '', 10) || 5432,
-    user: process.env.DATABASE_USER || 'server',
+    username: process.env.DATABASE_USER || 'server',
     password: process.env.DATABASE_PASSWORD || 'server-pwd',
     database: process.env.DATABASE_DATABASE || 'mindmark',
   },

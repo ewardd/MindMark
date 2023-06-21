@@ -1,0 +1,85 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mindmark-webapp
+spec:
+  selector:
+    app: mindmark-webapp
+  ports:
+    - name: mindmark-webapp-tcp
+      protocol: TCP
+      port: 80
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mindmark-webapp
+spec:
+  selector:
+    matchLabels:
+      app: mindmark-webapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mindmark-webapp
+    spec:
+      containers:
+        - name: mindmark-webapp
+          image: registry.blackrocksoul.pw/mindmark-webapp:latest
+          imagePullPolicy: Always
+          securityContext:
+            privileged: true
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 0
+            failureThreshold: 3
+            timeoutSeconds: 1
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 0
+            failureThreshold: 3
+            timeoutSeconds: 1
+            periodSeconds: 10
+          startupProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            failureThreshold: 10
+            timeoutSeconds: 1
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: registry-secret
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mindmark-webapp-ingress
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+    cert-manager.io/cluster-issuer: 'letsencrypt'
+    acme.cert-manager.io/http01-edit-in-place: 'true'
+spec:
+  tls:
+    - hosts:
+        - mindmark.blackrocksoul.pw
+      secretName: mindmark-webapp-tls
+  rules:
+    - host: mindmark.blackrocksoul.pw
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mindmark-webapp
+                port:
+                  number: 80

@@ -15,17 +15,7 @@ import configuration, { IConfiguration } from './config/configuration';
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: (config: ConfigService) => ({
-        type: 'postgres',
-        host: 'localhost',
-        port: 5432,
-        username: 'server',
-        password: 'server-pwd',
-        database: 'mindmark',
-        autoLoadEntities: true,
-        synchronize: true,
-        ...config.get<IConfiguration['database']>('database'),
-      }),
+      useFactory: (config: ConfigService) => config.get<IConfiguration['database']>('database')!,
       inject: [ConfigService],
     }),
     AuthModule,

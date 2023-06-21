@@ -1,0 +1,11 @@
+**
+
+!./yarn/**
+!/.pnp.cjs
+!/yarn.lock
+!/package.json
+!/.yarnrc.yml
+!/backend/**
+/backend/dist/**
+/backend/.env.local
+/backend/.env

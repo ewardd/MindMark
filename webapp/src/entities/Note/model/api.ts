@@ -14,5 +14,13 @@ export const notesApi = baseApi.injectEndpoints({
         body,
       }),
     }),
+    updateNote: build.mutation<INote, IUpdateNoteDto>({
+      query: (body) => ({
+        url: `/pages`,
+        method: 'PATCH',
+        body,
+      }),
+    }),
+  }),
 });
 export const { useGetNotesQuery } = notesApi;

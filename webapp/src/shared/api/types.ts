@@ -12,3 +12,9 @@ export interface ISession {
 export interface IUser extends IBaseEntity {
   email: string;
 }
+
+export interface INote extends IBaseEntity {
+  author: IUser;
+  title: string;
+  content: string;
+}

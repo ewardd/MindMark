@@ -28,4 +28,4 @@ export const notesApi = baseApi.injectEndpoints({
     }),
   }),
 });
-export const { useGetNotesQuery } = notesApi;
+export const { useGetNotesQuery, useGetNoteQuery, useCreateNoteMutation, useUpdateNoteMutation } = notesApi;

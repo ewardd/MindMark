@@ -7,6 +7,11 @@ export const notesApi = baseApi.injectEndpoints({
         url: `/pages`,
       }),
     }),
+    getNote: build.query<INote, INote['id']>({
+      query: (id) => ({
+        url: `/pages/${id}`,
+      }),
+    }),
     createNote: build.mutation<INote, ICreateNoteDto>({
       query: (body) => ({
         url: `/pages`,

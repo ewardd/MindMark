@@ -1,15 +1,14 @@
 import { Typography } from 'antd';
-import Header from '@widgets/Header/ui';
-import { BaseSider } from '@widgets/Sider/ui';
+import { BaseHeader } from '@widgets/Header';
+import { BaseSider } from '@widgets/Sider';
 import { useMeQuery } from '@entities/User';
 import { BaseLayout } from '@shared/ui';
 
 // TODO: Remove
 const TestPage = () => {
   const { data } = useMeQuery();
-
   return (
-    <BaseLayout headerSlot={<Header />} siderSlot={<BaseSider />}>
+    <BaseLayout headerSlot={<BaseHeader />} siderSlot={<BaseSider />}>
       <Typography.Text>Auth done - {data?.email}</Typography.Text>
     </BaseLayout>
   );

@@ -1,1 +1,1 @@
-export { BaseSider } from './Sider';
+export * from './ui';

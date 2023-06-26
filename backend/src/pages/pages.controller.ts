@@ -3,6 +3,7 @@ import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post } from
 import { CreatePageDto } from './dto/create-page.dto';
 import { IUserContext } from 'src/auth/types/RequestContext';
 import { Page } from 'src/pages/entities/page.entity';
+import { PageDto } from 'src/pages/dto/page.dto';
 import { PagesService } from './pages.service';
 import { UpdatePageDto } from './dto/update-page.dto';
 import { UseUserContext } from 'src/utils/decorators/UseUserContext';
@@ -19,9 +20,9 @@ export class PagesController {
   }
 
   @Get()
-  @ApiOkResponse({ type: [Page] })
-  public findAll(@UseUserContext() user: IUserContext): Promise<Page[]> {
-    return this._pagesService.findAll(user.id);
+  @ApiOkResponse({ type: [PageDto] })
+  public getList(@UseUserContext() user: IUserContext): Promise<PageDto[]> {
+    return this._pagesService.getList(user.id);
   }
 
   @Get(':id')

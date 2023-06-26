@@ -1,9 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IOmitAbstractEntity } from 'src/utils/AbstractEntity';
-import { IsNotEmpty, IsString, Length } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString, IsUUID, Length } from 'class-validator';
 import { Page } from 'src/pages/entities/page.entity';
 
-export class CreatePageDto implements Omit<Page, IOmitAbstractEntity | 'isCompleted' | 'author'> {
+export class CreatePageDto
+  implements Omit<Page, IOmitAbstractEntity | 'isCompleted' | 'author' | 'parent' | 'children' | 'key'>
+{
   @IsNotEmpty()
   @IsString()
   @Length(4, 220)
@@ -14,4 +16,9 @@ export class CreatePageDto implements Omit<Page, IOmitAbstractEntity | 'isComple
   @IsString()
   @ApiProperty()
   public content: string;
+
+  @IsOptional()
+  @IsUUID()
+  @ApiProperty()
+  public parent?: string;
 }

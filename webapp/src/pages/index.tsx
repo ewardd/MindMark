@@ -12,9 +12,6 @@ export const Routing = () => {
     <Routes>
       <Route element={<WithAuth />}>
         <Route path={'/dashboard'} element={<TestPage />} />
-      </Route>
-
-      <Route element={<WithAuth />}>
         <Route path={'/create-note'} element={<CreateNote />} />
       </Route>
 

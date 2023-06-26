@@ -1,6 +1,8 @@
 import { Form } from 'antd';
 import React from 'react';
+import ReactQuill from 'react-quill';
 import { CreateNoteButton } from '@features/Notes';
+import 'react-quill/dist/quill.snow.css';
 
 export const CreateNoteForm: React.FC = () => {
   const [form] = Form.useForm();
@@ -10,9 +12,7 @@ export const CreateNoteForm: React.FC = () => {
         <input />
       </Form.Item>
       <Form.Item name={'content'}>
-        {/* TODO: add react quill */}
-        {/* <ReactQuill /> */}
-        <input />
+        <ReactQuill />
       </Form.Item>
       <Form.Item>
         <CreateNoteButton formData={form} />

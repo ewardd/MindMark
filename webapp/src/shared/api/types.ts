@@ -14,7 +14,11 @@ export interface IUser extends IBaseEntity {
 }
 
 export interface INote extends IBaseEntity {
+  key: string;
   author: IUser;
   title: string;
   content: string;
+  isCompleted?: boolean;
+  parent: INote;
+  children: INote[];
 }

@@ -1,11 +1,11 @@
+import React from 'react';
 import { BaseHeader } from '@widgets/Header';
-import { CreateNoteForm } from '@widgets/Notes';
-import { BaseSider } from '@widgets/Sider';
-import { BaseLayout } from '@shared/ui';
+import { CreateNoteForm, NotesTree } from '@widgets/Notes';
+import { BaseLayout, BaseSider } from '@shared/ui';
 
-export const CreateNote = () => {
+export const CreateNote: React.FC = () => {
   return (
-    <BaseLayout headerSlot={<BaseHeader />} siderSlot={<BaseSider />}>
+    <BaseLayout headerSlot={<BaseHeader />} siderSlot={<BaseSider children={<NotesTree />} />}>
       <CreateNoteForm />
     </BaseLayout>
   );

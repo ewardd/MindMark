@@ -1,17 +1,20 @@
+import { Typography } from 'antd';
 import React from 'react';
+import ReactQuill from 'react-quill';
 import { useParams } from 'react-router';
 import { useGetNoteQuery } from '@entities/Note';
+import 'react-quill/dist/quill.bubble.css';
 
 interface IViewNoteProps {}
 
 export const ViewNote: React.FC<IViewNoteProps> = () => {
   const { id } = useParams();
-  const { note } = useGetNoteQuery(id);
+  const { data: note } = useGetNoteQuery(id!);
 
   return (
     <>
-      {/* <Typography.Title>{params}</Typography.Title> */}
-      {/* <Typography.Text>{note.content}</Typography.Text> */}
+      <Typography.Title>{note?.title}</Typography.Title>
+      <ReactQuill value={note?.content} readOnly theme={'bubble'} />
     </>
   );
 };

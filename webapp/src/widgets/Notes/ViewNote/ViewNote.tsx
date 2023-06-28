@@ -9,7 +9,7 @@ interface IViewNoteProps {}
 
 export const ViewNote: React.FC<IViewNoteProps> = () => {
   const { id } = useParams();
-  const { data: note } = useGetNoteQuery(id!);
+  const { data: note } = useGetNoteQuery(id!, { skip: !id });
 
   return (
     <>

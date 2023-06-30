@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { IsNull, Repository } from 'typeorm';
 import { Page } from 'src/pages/entities/page.entity';
-import { PageDto } from 'src/pages/dto/page.dto';
+import { TreePageDto } from 'src/pages/dto/tree-page.dto';
 import { UpdatePageDto } from './dto/update-page.dto';
 import { User } from 'src/users/entities/user.entity';
 
@@ -29,11 +29,12 @@ export class PagesService {
   public findAll = (userId: User['id']): Promise<Page[]> =>
     this._pageRepository.find({ where: { author: { id: userId } } });
 
-  public getList = async (userId: User['id']): Promise<PageDto[]> => {
+  public getTree = async (userId: User['id']): Promise<TreePageDto[]> => {
     const pages = await this._pageRepository.find({
       where: { author: { id: userId }, parent: IsNull() },
-      select: ['id', 'title', 'author', 'createdAt', 'updatedAt', 'children'],
+      select: ['id', 'title', 'children'],
       relations: ['children'],
+      loadEagerRelations: false,
     });
 
     return pages;

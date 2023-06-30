@@ -3,19 +3,22 @@ import React from 'react';
 import ReactQuill from 'react-quill';
 import { CreateNoteButton } from '@features/Notes';
 import 'react-quill/dist/quill.snow.css';
+import { ICreateNoteDto } from '@shared/api';
 
 export const CreateNoteForm: React.FC = () => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm<ICreateNoteDto>();
   return (
     <Form form={form} name={'CreateNoteForm'}>
-      <Form.Item name={'title'}>
+      <Form.Item name={'title'} initialValue={''}>
         <input />
       </Form.Item>
-      <Form.Item name={'content'}>
+
+      <Form.Item name={'content'} initialValue={''}>
         <ReactQuill />
       </Form.Item>
+
       <Form.Item>
-        <CreateNoteButton formData={form} />
+        <CreateNoteButton form={form} />
       </Form.Item>
     </Form>
   );

@@ -1,1 +1,1 @@
-export { ViewNote as ViewNoteContents } from './ViewNote';
+export { ViewNoteContents } from './ViewNote';

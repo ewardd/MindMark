@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { INote } from '@shared/api';
+import { ITreeNoteDto } from '@shared/api';
 
 interface INotesTreeRowProps {
-  note: INote;
+  note: ITreeNoteDto;
 }
 
 export const NotesTreeRow: React.FC<INotesTreeRowProps> = (props) => {

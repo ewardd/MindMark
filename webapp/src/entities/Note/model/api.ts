@@ -1,27 +1,27 @@
-import { baseApi, ICreateNoteDto, INote, IUpdateNoteDto } from '@shared/api';
+import { baseApi, ICreateNoteDto, INote, ITreeNoteDto, IUpdateNoteDto } from '@shared/api';
 
 export const notesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getNotes: build.query<[INote], void>({
+    getNotes: build.query<[ITreeNoteDto], void>({
       query: () => ({
-        url: `/pages`,
+        url: `/notes`,
       }),
     }),
     getNote: build.query<INote, INote['id']>({
       query: (id) => ({
-        url: `/pages/${id}`,
+        url: `/notes/${id}`,
       }),
     }),
     createNote: build.mutation<INote, ICreateNoteDto>({
       query: (body) => ({
-        url: `/pages`,
+        url: `/notes`,
         method: 'POST',
         body,
       }),
     }),
     updateNote: build.mutation<INote, IUpdateNoteDto>({
       query: (body) => ({
-        url: `/pages`,
+        url: `/notes/${body.id}`,
         method: 'PATCH',
         body,
       }),

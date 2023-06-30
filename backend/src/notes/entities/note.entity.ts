@@ -4,7 +4,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { User } from 'src/users/entities/user.entity';
 
 @Entity()
-export class Page extends AbstractEntity {
+export class Note extends AbstractEntity {
   @ApiProperty()
   public key: string;
 
@@ -24,13 +24,13 @@ export class Page extends AbstractEntity {
   @ApiProperty()
   public isCompleted: boolean;
 
-  @ManyToOne(() => Page)
-  @ApiPropertyOptional({ type: Page })
-  public parent: Page;
+  @ManyToOne(() => Note)
+  @ApiPropertyOptional({ type: Note })
+  public parent: Note;
 
-  @OneToMany(() => Page, (page) => page.parent)
-  @ApiProperty({ type: [Page] })
-  public children: Page[];
+  @OneToMany(() => Note, (note) => note.parent)
+  @ApiProperty({ type: [Note] })
+  public children: Note[];
 
   @AfterLoad()
   protected getKey() {

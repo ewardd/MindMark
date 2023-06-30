@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IOmitAbstractEntity } from 'src/utils/AbstractEntity';
 import { IsNotEmpty, IsOptional, IsString, IsUUID, Length } from 'class-validator';
-import { Page } from 'src/pages/entities/page.entity';
+import { Note } from 'src/notes/entities/note.entity';
 
-export class CreatePageDto
-  implements Omit<Page, IOmitAbstractEntity | 'isCompleted' | 'author' | 'parent' | 'children' | 'key'>
+export class CreateNoteDto
+  implements Omit<Note, IOmitAbstractEntity | 'isCompleted' | 'author' | 'parent' | 'children' | 'key'>
 {
   @IsNotEmpty()
   @IsString()

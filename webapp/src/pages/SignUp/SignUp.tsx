@@ -3,10 +3,12 @@ import { SignUpForm } from '@features/Auth';
 import { ToggleTheme } from '@features/ToggleTheme';
 import { EmptyLayout } from '@shared/ui';
 
-export const SignUp: React.FC = () => (
-  <EmptyLayout>
-    <SignUpForm />
+export const SignUp: React.FC = () => {
+  return (
+    <EmptyLayout>
+      <SignUpForm />
 
-    <ToggleTheme className={'absolute right-4 top-4'} />
-  </EmptyLayout>
-);
+      <ToggleTheme className={'absolute right-4 top-4'} />
+    </EmptyLayout>
+  );
+};

@@ -34,7 +34,7 @@
     "react/jsx-curly-brace-presence": [1, { "props": "always", "propElementValues": "always" }],
     "no-debugger": "warn",
     "react/jsx-key": "error",
-    "import/no-internal-modules": ["error", { "allow": ["**/.yarn/cache/**", "**/@reduxjs/**"] }],
+    "import/no-internal-modules": ["error", { "allow": ["**/.yarn/cache/**", "**/@reduxjs/**", "**/react-quill/**"] }],
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "unused-imports/no-unused-imports": "warn",

@@ -1,8 +1,8 @@
 import { ApiPropertyOptional, PartialType } from '@nestjs/swagger';
-import { CreatePageDto } from './create-page.dto';
+import { CreateNoteDto } from './create-note.dto';
 import { IsBoolean, IsOptional } from 'class-validator';
 
-export class UpdatePageDto extends PartialType(CreatePageDto) {
+export class UpdateNoteDto extends PartialType(CreateNoteDto) {
   @IsOptional()
   public title?: string;
 

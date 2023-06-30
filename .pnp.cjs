@@ -40,7 +40,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["eslint", "npm:8.42.0"],\
             ["prettier", "npm:2.8.8"],\
-            ["react-quill", "virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
           ],\
           "linkType": "SOFT"\
@@ -23250,7 +23249,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mind-mark", "workspace:."],\
             ["eslint", "npm:8.42.0"],\
             ["prettier", "npm:2.8.8"],\
-            ["react-quill", "virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
           ],\
           "linkType": "SOFT"\
@@ -28411,17 +28409,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/react-quill-virtual-dbe5e7fe2e/0/cache/react-quill-npm-2.0.0-f2d141fe1d-568e28656a.zip/node_modules/react-quill/",\
+        ["virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-quill-virtual-2a3e13ea5b/0/cache/react-quill-npm-2.0.0-f2d141fe1d-568e28656a.zip/node_modules/react-quill/",\
           "packageDependencies": [\
-            ["react-quill", "virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0"],\
+            ["react-quill", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.0.0"],\
             ["@types/quill", "npm:1.3.10"],\
-            ["@types/react", null],\
-            ["@types/react-dom", null],\
+            ["@types/react", "npm:18.2.9"],\
+            ["@types/react-dom", "npm:18.2.4"],\
             ["lodash", "npm:4.17.21"],\
             ["quill", "npm:1.3.7"],\
-            ["react", null],\
-            ["react-dom", null]\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/react-dom",\
@@ -32247,6 +32245,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:18.2.0"],\
             ["react-markdown", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:8.0.7"],\
+            ["react-quill", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.0.0"],\
             ["react-redux", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:8.0.7"],\
             ["react-router", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:6.12.1"],\
             ["react-router-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:6.12.1"],\

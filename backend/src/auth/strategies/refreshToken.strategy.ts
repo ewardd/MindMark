@@ -1,7 +1,8 @@
 import { ConfigService } from '@nestjs/config';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { IConfiguration } from 'src/config/configuration';
-import { IUserContext, IUserRefreshContext } from 'src/auth/types/RequestContext';
+import { IJwtPayload } from 'src/auth/types/JwtPayload';
+import { IUserRefreshContext } from 'src/auth/types/RequestContext';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Request } from 'express';
@@ -16,11 +17,12 @@ export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'jwt-refres
     });
   }
 
-  public validate(req: Request, payload: Record<string, unknown> & IUserContext): IUserRefreshContext | null {
+  public validate(req: Request, { sub, email }: Record<string, unknown> & IJwtPayload): IUserRefreshContext | null {
     const authHeader = req.get('Authorization');
     if (typeof authHeader !== 'string') return null;
+    // TODO: Validate if user exist
 
     const refreshToken = authHeader.replace('Bearer', '').trim();
-    return { ...payload, refreshToken };
+    return { id: sub, email, refreshToken };
   }
 }

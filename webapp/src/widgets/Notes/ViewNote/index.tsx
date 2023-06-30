@@ -1,0 +1,1 @@
+export { ViewNoteContents } from './ViewNote';

@@ -1,1 +1,0 @@
-export { UpdateNote } from './UpdateNote';

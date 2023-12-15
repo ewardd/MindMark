@@ -6,11 +6,13 @@ export const notesApi = baseApi.injectEndpoints({
       query: () => ({
         url: `/notes`,
       }),
+      providesTags: ['Notes'],
     }),
     getNote: build.query<INote, INote['id']>({
       query: (id) => ({
         url: `/notes/${id}`,
       }),
+      providesTags: ['Note'],
     }),
     createNote: build.mutation<INote, ICreateNoteDto>({
       query: (body) => ({
@@ -18,6 +20,7 @@ export const notesApi = baseApi.injectEndpoints({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['Notes'],
     }),
     updateNote: build.mutation<INote, IUpdateNoteDto>({
       query: (body) => ({
@@ -25,7 +28,22 @@ export const notesApi = baseApi.injectEndpoints({
         method: 'PATCH',
         body,
       }),
+      invalidatesTags: ['Notes', 'Note'],
+    }),
+    deleteNote: build.mutation<INote, IUpdateNoteDto>({
+      query: (body) => ({
+        url: `/notes/${body.id}`,
+        method: 'DELETE',
+        body,
+      }),
+      invalidatesTags: ['Notes'],
     }),
   }),
 });
-export const { useGetNotesQuery, useGetNoteQuery, useCreateNoteMutation, useUpdateNoteMutation } = notesApi;
+export const {
+  useGetNotesQuery,
+  useGetNoteQuery,
+  useCreateNoteMutation,
+  useUpdateNoteMutation,
+  useDeleteNoteMutation,
+} = notesApi;

@@ -7,7 +7,7 @@ const SignUp = lazy(() => import('@pages/SignUp'));
 const TestPage = lazy(() => import('@pages/TestPage'));
 const CreateNote = lazy(() => import('@pages/Notes').then((module) => ({ default: module.CreateNote })));
 const ViewNote = lazy(() => import('@pages/Notes').then((module) => ({ default: module.ViewNote })));
-const UpdateNote = lazy(() => import('@pages/Notes').then((module) => ({ default: module.UpdateNote })));
+const EditNote = lazy(() => import('@pages/Notes').then((module) => ({ default: module.EditNote })));
 
 export const Routing = () => {
   return (
@@ -17,7 +17,7 @@ export const Routing = () => {
 
         <Route path={'/note/create'} element={<CreateNote />} />
         <Route path={'/note/:id'} element={<ViewNote />} />
-        <Route path={'/note/:id/update'} element={<UpdateNote />} />
+        <Route path={'/note/:id/edit'} element={<EditNote />} />
       </Route>
 
       <Route path={'/sign-in'} element={<SignIn />} />

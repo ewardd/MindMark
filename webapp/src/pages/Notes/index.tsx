@@ -1,3 +1,3 @@
 export * from './CreateNote';
 export * from './ViewNote';
-export * from './UpdateNote';
+export * from './EditNote';

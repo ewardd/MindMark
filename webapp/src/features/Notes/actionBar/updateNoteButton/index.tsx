@@ -1,1 +1,0 @@
-export { UpdateNoteButton } from './UpdateNoteButton';

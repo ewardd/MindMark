@@ -1,2 +1,2 @@
 export * from './createNoteButton';
-export * from './updateNoteButton';
+export * from './editNoteButton';

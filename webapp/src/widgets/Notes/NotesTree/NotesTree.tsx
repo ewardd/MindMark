@@ -12,12 +12,14 @@ export const NotesTree: React.FC = () => {
         <Link className={'flex py-2 pl-[27px]'} to={`/note/create`}>
           Create new Note
         </Link>
-        <Tree
-          className={'py-1'}
-          height={400}
-          titleRender={(element) => <NotesTreeRow note={element} />}
-          treeData={notesTree.data}
-        />
+        {notesTree.data && (
+          <Tree
+            className={'py-1'}
+            height={400}
+            titleRender={(element) => <NotesTreeRow note={element} />}
+            treeData={notesTree.data}
+          />
+        )}
       </>
     )
   );

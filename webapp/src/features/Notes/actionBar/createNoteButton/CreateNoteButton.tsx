@@ -13,5 +13,9 @@ export const CreateNoteButton: React.FC<ICreateNoteButtonProps> = (props) => {
   const [createNote, { isLoading }] = useCreateNoteMutation();
   const submit = () => createNote(form.getFieldsValue());
 
-  return <Button onClick={submit} loading={isLoading} />;
+  return (
+    <Button onClick={submit} loading={isLoading}>
+      Create
+    </Button>
+  );
 };

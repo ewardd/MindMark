@@ -1,1 +1,0 @@
-export { BaseSider } from './Sider';

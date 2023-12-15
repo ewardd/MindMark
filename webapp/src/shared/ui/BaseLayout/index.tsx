@@ -1,2 +1,2 @@
 export { BaseLayout } from './BaseLayout';
-export * from './BaseSider';
+export { BaseSider } from './BaseSider';

@@ -34,5 +34,22 @@
       ""
     ],
     "description": "React FC without props"
+  },
+  "Base page": {
+    "prefix": "rfcpage",
+    "body": [
+      "import React from 'react';",
+"import { BaseHeader } from '@widgets/Header';",
+"import { NotesTree } from '@widgets/Notes';",
+"import { BaseLayout, BaseSider } from '@shared/ui';",
+"",
+"export const Component: React.FC = () => {",
+"  return <BaseLayout headerSlot={<BaseHeader />} siderSlot={<BaseSider children={<NotesTree />} />}>",
+"",
+"  </BaseLayout>;",
+"};",
+    ],
+    "description": "React FC for Page with BaseLayout"
   }
 }
+

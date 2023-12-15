@@ -1,15 +1,14 @@
 import { Typography } from 'antd';
-import Header from '@widgets/Header';
-import { BaseSider } from '@widgets/Sider';
+import { BaseHeader } from '@widgets/Header';
+import { NotesTree } from '@widgets/Notes';
 import { useMeQuery } from '@entities/User';
-import { BaseLayout } from '@shared/ui';
+import { BaseLayout, BaseSider } from '@shared/ui';
 
 // TODO: Remove
 const TestPage = () => {
   const { data } = useMeQuery();
-
   return (
-    <BaseLayout headerSlot={<Header />} siderSlot={<BaseSider />}>
+    <BaseLayout headerSlot={<BaseHeader />} siderSlot={<BaseSider children={<NotesTree />} />}>
       <Typography.Text>Auth done - {data?.email}</Typography.Text>
     </BaseLayout>
   );

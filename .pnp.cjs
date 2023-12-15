@@ -40,7 +40,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["eslint", "npm:8.42.0"],\
             ["prettier", "npm:2.8.8"],\
-            ["react-quill", "virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
           ],\
           "linkType": "SOFT"\
@@ -13755,7 +13754,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:82fdf3a3adbeda722d269a6e4e49c3c1acbc39bf607d50c8d604b20fbd90d6a21f2c01030a8a13a14474717ab5a8bb16338c5260ae5b9971ee1c4b90a2f55011#npm:10.4.14"],\
             ["@types/postcss", null],\
             ["browserslist", "npm:4.21.7"],\
-            ["caniuse-lite", "npm:1.0.30001495"],\
+            ["caniuse-lite", "npm:1.0.30001570"],\
             ["fraction.js", "npm:4.2.0"],\
             ["normalize-range", "npm:0.1.2"],\
             ["picocolors", "npm:1.0.0"],\
@@ -13774,7 +13773,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:c17f595527d4a590d64e2701623f82f0214b9f5af8fbb16ca07ad27dcd039bec51db6c764155e7be774ea0b58a68181ac1071b41f0cd24c8c83fbb5dc02b65b3#npm:10.4.14"],\
             ["@types/postcss", null],\
             ["browserslist", "npm:4.21.7"],\
-            ["caniuse-lite", "npm:1.0.30001495"],\
+            ["caniuse-lite", "npm:1.0.30001570"],\
             ["fraction.js", "npm:4.2.0"],\
             ["normalize-range", "npm:0.1.2"],\
             ["picocolors", "npm:1.0.0"],\
@@ -14704,7 +14703,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/browserslist-npm-4.21.7-36caf91554-3d0d025e6d.zip/node_modules/browserslist/",\
           "packageDependencies": [\
             ["browserslist", "npm:4.21.7"],\
-            ["caniuse-lite", "npm:1.0.30001495"],\
+            ["caniuse-lite", "npm:1.0.30001570"],\
             ["electron-to-chromium", "npm:1.4.425"],\
             ["node-releases", "npm:2.0.12"],\
             ["update-browserslist-db", "virtual:36caf91554dac89a3f358f56f66ad80dc64d857177a5d24ed45f959d4a3df13ab436c15c5a53b1877973f2b1210f779aec20e0aa5d0876811aa58c9c83dd4f9c#npm:1.0.11"]\
@@ -14943,7 +14942,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["caniuse-api", "npm:3.0.0"],\
             ["browserslist", "npm:4.21.7"],\
-            ["caniuse-lite", "npm:1.0.30001495"],\
+            ["caniuse-lite", "npm:1.0.30001570"],\
             ["lodash.memoize", "npm:4.1.2"],\
             ["lodash.uniq", "npm:4.5.0"]\
           ],\
@@ -14951,10 +14950,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["caniuse-lite", [\
-        ["npm:1.0.30001495", {\
-          "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001495-4b9e0263f7-c0a139a2e6.zip/node_modules/caniuse-lite/",\
+        ["npm:1.0.30001570", {\
+          "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001570-e692fd4e76-460be2c7a9.zip/node_modules/caniuse-lite/",\
           "packageDependencies": [\
-            ["caniuse-lite", "npm:1.0.30001495"]\
+            ["caniuse-lite", "npm:1.0.30001570"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -23250,7 +23249,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mind-mark", "workspace:."],\
             ["eslint", "npm:8.42.0"],\
             ["prettier", "npm:2.8.8"],\
-            ["react-quill", "virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
           ],\
           "linkType": "SOFT"\
@@ -28411,17 +28409,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/react-quill-virtual-dbe5e7fe2e/0/cache/react-quill-npm-2.0.0-f2d141fe1d-568e28656a.zip/node_modules/react-quill/",\
+        ["virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-quill-virtual-2a3e13ea5b/0/cache/react-quill-npm-2.0.0-f2d141fe1d-568e28656a.zip/node_modules/react-quill/",\
           "packageDependencies": [\
-            ["react-quill", "virtual:39cff162ac0cd32ae1e67387f35eec1b33c2df9d26c3936f5e047e09e9e944afedfc114a44c83b777b0b3da971ce15dbc70f055e0d29d880866a0223bd10788f#npm:2.0.0"],\
+            ["react-quill", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.0.0"],\
             ["@types/quill", "npm:1.3.10"],\
-            ["@types/react", null],\
-            ["@types/react-dom", null],\
+            ["@types/react", "npm:18.2.9"],\
+            ["@types/react-dom", "npm:18.2.4"],\
             ["lodash", "npm:4.17.21"],\
             ["quill", "npm:1.3.7"],\
-            ["react", null],\
-            ["react-dom", null]\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/react-dom",\
@@ -32247,6 +32245,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:18.2.0"],\
             ["react-markdown", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:8.0.7"],\
+            ["react-quill", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:2.0.0"],\
             ["react-redux", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:8.0.7"],\
             ["react-router", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:6.12.1"],\
             ["react-router-dom", "virtual:8b83568debd30bdd9079d45efb50eebe642432e4341c7b72690e4f40007685ae73e81b62414ab60f04b4354a7c2ae60079a3aa0bcf77892f4f5b290c3c82f3f0#npm:6.12.1"],\

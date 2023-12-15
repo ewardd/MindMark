@@ -1,4 +1,4 @@
-interface IBaseEntity {
+export interface IBaseEntity {
   id: string;
   createdAt: Date;
   updatedAt: Date;
@@ -11,4 +11,14 @@ export interface ISession {
 
 export interface IUser extends IBaseEntity {
   email: string;
+}
+
+export interface INote extends IBaseEntity {
+  key: string;
+  author: IUser;
+  title: string;
+  content: string;
+  isCompleted?: boolean;
+  parent: INote;
+  children: INote[];
 }

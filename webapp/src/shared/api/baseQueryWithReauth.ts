@@ -4,6 +4,7 @@ import { notification } from 'antd';
 import { Mutex } from 'async-mutex';
 import { baseApi, isTokensResult, setAuthTokens } from '@shared/api';
 import { logout } from '@shared/hooks';
+import { capitalizeFirstLetter } from '@shared/utils';
 import { baseQuery, REFRESH_TOKEN_PLACEHOLDER } from './baseQuery';
 
 const mutex = new Mutex();
@@ -62,7 +63,6 @@ export const baseQueryWithReauth: ReturnType<typeof fetchBaseQuery> = async (
       message: 'An error occurred',
       description: getMessageFromError(result.error),
     });
-
   return result;
 };
 
@@ -73,6 +73,8 @@ const getMessageFromError = (error: FetchBaseQueryError | undefined | null): str
   if (error.data instanceof Error) return error.data.message;
   if (error.data && typeof error.data === 'object' && 'message' in error.data && typeof error.data.message === 'string')
     return error.data.message;
+  if (error.data && typeof error.data === 'object' && 'message' in error.data && Array.isArray(error.data.message))
+    return error.data.message.map((message) => capitalizeFirstLetter(message)).join('\n');
   if (typeof error.data === 'string') return error.data;
 };
 
